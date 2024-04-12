@@ -41,17 +41,21 @@ services:
     image: mongo:latest
     ports:
       - "27017:27017"
-    networks:
-      - mern-app
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: 1234
     volumes:
       - mongo-data:/data/db
       - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js  # Agregar el script de inicialización
+    networks:
+      mern-app:
+        ipv4_address: 172.18.0.2  # Asignación de dirección IP estática
 networks:
   mern-app:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16  # Definición de la subred
 volumes:
   mongo-data:
     driver: local
