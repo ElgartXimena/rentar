@@ -23,6 +23,9 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-inner-border"),
+    // ...
+  ],
 }
 

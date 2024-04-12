@@ -4,7 +4,7 @@ import { generateDate, months } from "../../Utils/Datepickerutils/Calendar";
 import cn from "../../Utils/Datepickerutils/cn";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 
-const DatePicker = () => {
+const DatePicker = ({setPickDay, setShowSelector}) => {
 	const days = ["S", "M", "T", "W", "T", "F", "S"];
 	const currentDate = dayjs();
 	const [today, setToday] = useState(currentDate);
@@ -58,13 +58,13 @@ const DatePicker = () => {
 							return (
 								<div
 									key={index}
-									className="text-center grid place-content-center text-sm border-t font-poppins text-color-blue"
+									className="text-center grid place-content-center text-sm border-t font-poppins font-medium text-color-blue"
 								>
 									<h1
 										className={cn(
 											currentMonth ? "" : "text-gray-400",
 											today
-												? "bg-color-lightblue text-white"
+												? "border-2 border-color-lightblue"
 												: "",
 											selectDate
 												.toDate()
@@ -76,6 +76,8 @@ const DatePicker = () => {
 										)}
 										onClick={() => {
 											setSelectDate(date);
+											setPickDay(date);
+											setShowSelector(false);
 										}}
 									>
 										{date.date()}

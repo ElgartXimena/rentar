@@ -2,9 +2,9 @@ import React from 'react'
 import { logo } from '../constants'
 const Header = () => {
     return (
-        <div className='flex justify-between items-center mx-auto px-10 py-3 
-        text-color-black font-poppins font-normal text-lg drop-shadow-md backdrop-blur-md
-        bg-white'>
+        <div className='flex justify-between items-center mx-auto px-10 py-3 z-50 top-0 left-0 w-full
+        text-color-black font-poppins font-normal text-lg drop-shadow-md backdrop-blur-lg backdrop-brightness-120 fixed
+        bg-white/60'>
             <img src={logo} className='h-7'/>
             <ul className='flex'>
                 <li className='py-1 px-4 hover:cursor-pointer'>Cars</li>

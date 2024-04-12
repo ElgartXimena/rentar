@@ -1,4 +1,4 @@
-import { logo, herobg, downarrow, checkin, checkout, location } from "../assets";
+import { logo, herobg, downarrow, checkin, checkout, location, chevrolet, fiat, ford, renault, toyota, vw } from "../assets";
 
 export {
     logo,
