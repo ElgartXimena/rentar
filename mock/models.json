@@ -1,0 +1,44 @@
+car
+{
+    "make": "",
+    "model": "",
+    "year": ,
+    "seats": ,
+    "luggage": ,
+    "category": "",
+    "price": ,
+    "rating": ,
+    "city": "",
+    "url": ""
+}
+
+city 
+{
+    "name": "",
+    "address": ""
+}
+
+user 
+{
+    "name": "",
+    "email": "",
+    "password": "",
+    "birthdate": 
+}
+
+booking 
+{
+    "car": "",
+    "user": "",
+    "start": ,
+    "finish": ,
+    "final_price": 
+}
+
+review 
+{
+    "user": "",
+    "date": ,
+    "text": "",
+    "rating":
+}
