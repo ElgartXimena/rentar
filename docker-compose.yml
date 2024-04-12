@@ -1,0 +1,58 @@
+version: "3.8"
+services:
+  web:
+    depends_on:
+      - api
+    build: ./Frontend
+    stdin_open: true
+    ports: 
+      - "5173:5173"
+    networks:
+      - mern-app
+    develop:
+      watch:
+        - path: ./Frontend/package.json
+          action: rebuild
+        - path: ./Frontend/package-lock.json
+          action: rebuild
+        - path: ./Frontend
+          target: /app
+          action: sync
+
+  api:
+    depends_on:
+      - db
+    build: ./Backend
+    ports:
+      - "8000:8000"
+    networks:
+      - mern-app
+    develop:
+      watch:
+        - path: ./Backend/package.json
+          action: rebuild
+        - path: ./Backend/package-lock.json
+          action: rebuild
+        - path: ./Backend
+          target: /app
+          action: sync 
+          
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - mern-app
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+    command: mongod --auth --bind_ip_all --replSet rs0
+    volumes:
+      - mongo-data:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js  # Agregar el script de inicialización
+networks:
+  mern-app:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local
