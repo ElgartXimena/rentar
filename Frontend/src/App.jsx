@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Partnership from './components/Partnership';
-import Categories from './components/Categories';
-import Toprated from './components/Toprated';
+import Header from './components/LandingPage/Header';
+import Hero from './components/LandingPage/Hero';
+import Partnership from './components/LandingPage/Partnership';
+import Categories from './components/LandingPage/Categories';
+import Toprated from './components/LandingPage/Toprated';
+import Reviews from './components/LandingPage/Reviews';
+import Footer from './components/LandingPage/Footer';
 
 function App() {
 
@@ -14,6 +16,8 @@ function App() {
       <Partnership/>
       <Categories/>
       <Toprated/>
+      <Reviews/>
+      <Footer/>
     </>
   )
 }

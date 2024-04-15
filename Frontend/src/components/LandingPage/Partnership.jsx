@@ -1,13 +1,13 @@
 import React from 'react'
-import { chevrolet, fiat, ford, renault, toyota, vw } from '../assets'
+import { chevrolet, fiat, ford, renault, toyota, vw } from '../../assets'
 
 const Partnership = () => {
   return (
-    <div className='flex flex-col items-center mt-24 py-10'>
+    <div className='flex flex-col items-center mt-20 py-10 mx-10'>
         <h1 className='font-poppins font-semibold text-color-stronggray text-2xl mb-4'>
             In partnership with
         </h1>
-        <div className='flex flex-row items-center w-full justify-between max-w-[1400px]'>
+        <div className='flex flex-wrap items-center w-full lg:justify-between md:justify-center sm:justify-center max-w-[1400px]'>
             <img src={renault} className='hover:scale-110 ease-in-out duration-200'/>
             <img src={ford} className='hover:scale-110 ease-in-out duration-200'/>
             <img src={fiat} className=' hover:scale-110 ease-in-out duration-200'/>

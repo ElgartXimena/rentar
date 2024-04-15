@@ -4,6 +4,13 @@ import downarrow from './Icons/down-arrow.svg'
 import checkin from './Icons/check-in-calendar.svg'
 import checkout from './Icons/check-out-calendar.svg'
 import location from './Icons/location.svg'
+import seat from './Icons/seat.svg'
+import luggage from './Icons/luggage.svg'
+import gear from './Icons/gear.svg'
+import emptystar from './Icons/empty-star.svg'
+import filledstar from './Icons/filled-star.svg'
+import halfstar from './Icons/half-star.svg'
+import quotes from './Icons/comment-quote.svg'
 
 import chevrolet from './Images/chevrolet.svg'
 import fiat from './Images/fiat.svg'
@@ -17,6 +24,10 @@ import pickup from './Images/pickup.png'
 import sport from './Images/sport.png'
 import suv from './Images/suv.png'
 import van from './Images/van.png'
+
+import userphoto from './Images/userphoto.jpg'
+
+import cronos from './Images/Cronos8.jpg'
 export {
     logo,
     herobg,
@@ -34,5 +45,14 @@ export {
     pickup,
     sport,
     suv,
-    van
+    van,
+    gear,
+    luggage,
+    seat,
+    cronos,
+    filledstar,
+    halfstar,
+    emptystar,
+    userphoto,
+    quotes
 };

@@ -17,7 +17,7 @@ const Selector = ({label, sampleText, icon, type, setShowSelector, showSelector,
         >
             <div className='flex-row flex'>
                 <img src={icon}/>
-                <input className='pr-4 pl-1 border-none bg-color-lightgray outline-none text-color-black font-medium' placeholder={sampleText}/>
+                <input className='pr-auto pl-1 border-none bg-color-lightgray outline-none text-color-black font-medium' placeholder={sampleText}/>
             </div>
             <img src={downarrow} className='hover:scale-125 hover:drop-shadow-lg'/>
         </div>

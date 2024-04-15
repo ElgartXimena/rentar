@@ -5,7 +5,7 @@
 
 @layer components {
   .blue-btn {
-    @apply relative flex h-min items-center justify-center
+    @apply relative h-min items-center justify-center
     px-5 py-2 drop-shadow-xl border-2 border-color-blue bg-color-blue bg-opacity-10
     text-color-blue font-poppins font-semibold text-lg rounded-[70px]
     hover:bg-opacity-100 hover:stroke-none hover:text-white hover:rounded-xl

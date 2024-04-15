@@ -1,9 +1,9 @@
 import React, { useState, useEffect }from 'react'
 import dayjs from "dayjs";
-import { herobg } from '../constants'
-import Selector from './selector/Selector'
-import { location, checkin, checkout } from '../constants'
-import DatePicker from './selector/DatePicker'
+import { herobg } from '../../constants'
+import Selector from '../selector/Selector'
+import { location, checkin, checkout } from '../../constants'
+import DatePicker from '../selector/DatePicker'
 const Hero = () => {
   const [showSelector, setShowSelector] = useState(false)
   const [showSelector2, setShowSelector2] = useState(false)
@@ -24,7 +24,7 @@ const Hero = () => {
         <div 
         className="bg-white/30 text-white items-end
         px-4 py-5 backdrop-blur-md drop-shadow-2xl border-2 border-white rounded-3xl mt-[500px]
-        lg:flex-row flex sm:flex-col"
+        flex-row flex "
         >
         {/* Absolute positioned div */}
           <Selector label={'Departure city'} sampleText={'Bariloche, Rio Negro'} icon={location}/>
