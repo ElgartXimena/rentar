@@ -1,0 +1,20 @@
+[
+    {
+        "user": "Maria Rodriguez",
+        "date": "2024-03-15",
+        "text": "El proceso de renta fue increíblemente sencillo y el personal fue muy amable. El coche estaba en perfecto estado y limpio. Definitivamente usaré este servicio nuevamente.",
+        "rating": 5
+    },
+    {
+        "user": "John Smith",
+        "date": "2024-02-28",
+        "text": "La experiencia general fue buena, pero el coche que recibí tenía algunos rasguños que no fueron señalados previamente. A pesar de eso, el coche funcionó bien sin problemas.",
+        "rating": 4
+    },
+    {
+        "user": "Ana López",
+        "date": "2024-04-01",
+        "text": "Excelente servicio al cliente y vehículos de alta calidad a precios razonables. El proceso de recogida y devolución fue rápido y sin complicaciones. ¡Muy recomendado!",
+        "rating": 4.5
+    }
+]
