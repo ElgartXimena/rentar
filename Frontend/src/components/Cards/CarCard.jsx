@@ -2,7 +2,7 @@ import React from 'react'
 import { cronos, emptystar, filledstar, gear, halfstar, luggage, seat } from '../../assets'
 
 const CarCard = ({}) => {
-    const carItem = {carImg: cronos, make:'Fiat', model:'Cronos', year:'2024', seats:'4', luggage:'2', gear:'Manual', rating:4.3, price:'$39' }
+    const carItem = {carImg: 'https://i.postimg.cc/ZngDYKnP/fiat-cronos.jpg', make:'Fiat', model:'Cronos', year:'2024', seats:'4', luggage:'2', gear:'Manual', rating:4.3, price:'$19' }
     function getStarArray(){
         let rate = 1;
         let stars = [];

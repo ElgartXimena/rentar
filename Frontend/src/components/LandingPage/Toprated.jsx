@@ -35,6 +35,9 @@ const Toprated = () => {
                 1250: {
                     slidesPerView: 4,
                 },
+                1600:{
+                  slidesPerView: 5,
+                },
 
             }}
             spaceBetween={16}
@@ -42,7 +45,7 @@ const Toprated = () => {
                 clickable: true,
             }}
             modules={[FreeMode, Pagination]}
-            className="justify-start max-w-[1300px] w-full p-10"
+            className="justify-start w-full p-10"
         >
           <SwiperSlide >
             <CarCard/>

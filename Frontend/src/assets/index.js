@@ -11,6 +11,8 @@ import emptystar from './Icons/empty-star.svg'
 import filledstar from './Icons/filled-star.svg'
 import halfstar from './Icons/half-star.svg'
 import quotes from './Icons/comment-quote.svg'
+import volante from './Icons/volante.png'
+import volanteblanco from './Icons/volante-blanco.png'
 
 import chevrolet from './Images/chevrolet.svg'
 import fiat from './Images/fiat.svg'
@@ -54,5 +56,7 @@ export {
     halfstar,
     emptystar,
     userphoto,
-    quotes
+    quotes,
+    volante,
+    volanteblanco
 };

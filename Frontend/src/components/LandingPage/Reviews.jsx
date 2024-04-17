@@ -7,6 +7,7 @@ import "swiper/css/free-mode";
 
 import { FreeMode, Pagination } from "swiper/modules";
 import ReviewCard from '../Cards/ReviewCard';
+import { volante } from '../../assets';
 const Reviews = () => {
   return (
     <div className='flex lg:flex-row mx-10 my-6 lg:items-center  md:flex-col md:items-start sm:flex-col sm:items-start'>
@@ -43,7 +44,7 @@ const Reviews = () => {
             text-transparent font-poppins text-5xl font-semibold bg-clip-text">
                 Thousands of clients trust in us, join them now!
             </span>
-            <div className='blue-btn mt-10'>Start renting</div>
+            <div className='blue-btn mt-10 justify-start'>Start renting</div>
         </div>
     </div>
   )
