@@ -3,14 +3,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 import "swiper/css/free-mode";
 
-import { FreeMode, Pagination } from "swiper/modules";
+import { FreeMode, Pagination, Navigation } from "swiper/modules";
 import ReviewCard from '../Cards/ReviewCard';
 import { volante } from '../../assets';
 const Reviews = () => {
+    
   return (
-    <div className='flex lg:flex-row mx-10 my-6 lg:items-center  md:flex-col md:items-start sm:flex-col sm:items-start'>
+    <div id="Reviews" className='flex lg:flex-row mx-10 my-6 lg:items-center  md:flex-col md:items-start sm:flex-col sm:items-start'>
         <Swiper
             freeMode={true}
             breakpoints={{
@@ -22,12 +24,13 @@ const Reviews = () => {
                 },
 
             }}
+            navigation
             spaceBetween={20}
             pagination={{
                 clickable: true,
             }}
-            modules={[FreeMode, Pagination]}
-            className="justify-center p-10 pb-14 lg:flex-1 md:w-full sm:w-full"
+            modules={[FreeMode, Pagination, Navigation]}
+            className="justify-center items-center p-10 pb-14 lg:flex-1 md:w-full sm:w-full"
         >
             <SwiperSlide>
                 <ReviewCard/>

@@ -8,3 +8,26 @@ export {
     downarrow,
     location
 }
+
+export const navigation = [
+    {
+        id: "0",
+        title: "Cars",
+        url:"Cars",
+    },
+    {
+        id: "1",
+        title: "Top Picks",
+        url:"Toprated",
+    },
+    {
+        id: "2",
+        title: "Reviews",
+        url:"Reviews",
+    },
+    {
+        id: "3",
+        title: "Contact",
+        url:"Contact",
+    },
+]

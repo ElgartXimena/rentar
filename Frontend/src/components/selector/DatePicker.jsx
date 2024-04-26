@@ -10,7 +10,7 @@ const DatePicker = ({setPickDay, setShowSelector}) => {
 	const [today, setToday] = useState(currentDate);
 	const [selectDate, setSelectDate] = useState(currentDate);
 	return (
-		<div className="flex sm:divide-x justify-center items-center sm:flex-row flex-col bg-white p-6 rounded-2xl drop-shadow-2xl z-10">
+		<div className="flex sm:divide-x justify-center items-center sm:flex-row flex-col bg-white p-6 rounded-2xl drop-shadow-2xl z-100">
 			<div>
 				<div className="flex justify-between items-center pb-6">
 					<h1 className="select-none font-poppins font-semibold text-color-blue">

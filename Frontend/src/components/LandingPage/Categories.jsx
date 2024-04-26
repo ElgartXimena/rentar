@@ -2,7 +2,7 @@ import React from 'react'
 import { sedan, suv, van, pickup, sport } from '../../assets'
 const Categories = () => {
   return (
-    <div className='flex flex-col my-3 items-center mx-10 ' >
+    <div id="Cars" className='flex flex-col my-3 items-center mx-10 ' >
         <div className='flex flex-col items-center'>
             <span className="bg-gradient-to-r from-color-lightblue to-color-violet text-transparent font-poppins text-5xl font-semibold bg-clip-text py-2">Your adventure, your choice</span>
             <h1 className='font-poppins font-normal text-2xl text-color-stronggray py-2'>Find the one that best suits you</h1>

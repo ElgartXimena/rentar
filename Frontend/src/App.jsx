@@ -10,14 +10,12 @@ import Footer from './components/LandingPage/Footer';
 function App() {
 
   return ( 
-    <>  
-      <Header/>
+    <>
       <Hero/>
       <Partnership/>
       <Categories/>
       <Toprated/>
       <Reviews/>
-      <Footer/>
     </>
   )
 }

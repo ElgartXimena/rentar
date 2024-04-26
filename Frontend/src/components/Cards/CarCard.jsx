@@ -19,7 +19,7 @@ const CarCard = ({}) => {
         return stars;
     }
     return (
-    <div className='flex flex-col rounded-[28px] drop-shadow-lg hover:drop-shadow-2xl bg-white transition-all ease-in-out duration-350 w-auto'>
+    <div className='flex flex-col rounded-[28px] drop-shadow-lg hover:drop-shadow-2xl bg-white transition-all ease-in-out duration-350 w-auto my-12 min-w-[300px]'>
         <div
             className="h-[180px] bg-cover bg-center flex items-center justify-center rounded-t-[28px]"
             style={{ backgroundImage: `url(${carItem.carImg})` }}

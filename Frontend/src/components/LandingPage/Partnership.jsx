@@ -8,12 +8,12 @@ const Partnership = () => {
             In partnership with
         </h1>
         <div className='flex flex-wrap items-center w-full lg:justify-between md:justify-center sm:justify-center max-w-[1400px]'>
-            <img src={renault} className='hover:scale-110 ease-in-out duration-200'/>
-            <img src={ford} className='hover:scale-110 ease-in-out duration-200'/>
-            <img src={fiat} className=' hover:scale-110 ease-in-out duration-200'/>
-            <img src={toyota} className=' hover:scale-110 ease-in-out duration-200'/>
-            <img src={chevrolet} className=' hover:scale-110 ease-in-out duration-200'/>
-            <img src={vw} className=' hover:scale-110 ease-in-out duration-200'/>
+            <img src={renault} className='hover:scale-90 ease-in-out duration-200'/>
+            <img src={ford} className='hover:scale-90 ease-in-out duration-200'/>
+            <img src={fiat} className=' hover:scale-90 ease-in-out duration-200'/>
+            <img src={toyota} className=' hover:scale-90 ease-in-out duration-200'/>
+            <img src={chevrolet} className=' hover:scale-90 ease-in-out duration-200'/>
+            <img src={vw} className=' hover:scale-90 ease-in-out duration-200'/>
         </div>
     </div>
   )
