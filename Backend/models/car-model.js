@@ -38,4 +38,24 @@ async function createCar(car){
     }
 }
 
-export default {findCarByMake, createCar}
+async function updateCar(filter, updatedFields){
+    
+    try {
+        return await CarModel.updateOne(filter, updatedFields)
+    } catch (error) {
+        console.error('Error al ejecutar la consulta:', error);
+        throw error; // Re-lanza el error para manejarlo en otro lugar si es necesario
+    }
+}
+
+async function deleteCar(filter){
+    
+    try {
+        return await CarModel.deleteOne(filter)
+    } catch (error) {
+        console.error('Error al ejecutar la consulta:', error);
+        throw error; // Re-lanza el error para manejarlo en otro lugar si es necesario
+    }
+}
+
+export default {findCarByMake, createCar, updateCar, deleteCar}

@@ -27,6 +27,7 @@ mongoose
     .catch((error)=>{
         console.log(error)
     })
+
 async function create (collection){
     try {   
         const car = {
@@ -111,14 +112,37 @@ async function run() {
             rating:4.9,
             city:"Mar del Plata"
         }
+
+        const filter = {
+            make:"Audi",
+        }
+
+        const updatedFields = {
+            $set: {
+                year: 2023,
+                price: 99,
+                rating: 4.7
+            }
+        }
+
+        // CREATE
         //carmodel.createCar(car).then((result) => {console.log(result)})
-        carmodel.findCarByMake('Audi')
-        .then(result => {
-            console.log('Resultado de la consulta:', result);
-        })
-        .catch(error => {
-            console.error('Error al ejecutar la consulta:', error);
-        });
+
+        // REQUEST
+        // carmodel.findCarByMake('Audi')
+        // .then(result => {
+        //     console.log('Resultado de la consulta: ', result);
+        // })
+        // .catch(error => {
+        //     console.error('Error al ejecutar la consulta:', error);
+        // });
+
+        // UPDATE
+        //carmodel.updateCar(filter, updatedFields).then((result) => {console.log(result)})
+
+        // DELETE
+        //carmodel.deleteCar(filter).then((result) => {console.log(result)})
+
     } catch (error){
         console.warn(error);
     }
