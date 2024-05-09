@@ -4,19 +4,10 @@ import { herobg } from '../../constants'
 import Selector from '../selector/Selector'
 import { location, checkin, checkout } from '../../constants'
 import DatePicker from '../selector/DatePicker'
+import { Link } from 'react-router-dom';
+import SelectorsPanel from '../selector/SelectorsPanel';
 const Hero = () => {
-  const [showSelectorPick, setshowSelectorPick] = useState(false)
-  const [showSelectorRet, setshowSelectorRet] = useState(false)
-  const [showSelectorCity, setShowSelectorCity] = useState(false)
-  const [today, setToday] = useState(dayjs())
-  const [pickedCity, setPickedCity] = useState("Selecciona una ciudad...")
-  const [pickupDay, setPickupDay] = useState(today)
-  const [returnDay, setReturnDay] = useState(today.add(7, 'day'))
 
-  const [invalidDates, setInvalidDates] = useState(false)
-  useEffect(()=>{
-    pickupDay.isAfter(returnDay) ? setInvalidDates(true) : setInvalidDates(false) ;
-  },[pickupDay, returnDay])
   return (
     <div
     id="Home"
@@ -30,10 +21,8 @@ const Hero = () => {
         flex-row flex "
         >
         {/* Absolute positioned div */}
-          <Selector type={1} label={'Departure city'} sampleText={pickedCity} icon={location} setShowSelector={setShowSelectorCity} showSelector={showSelectorCity} setCity={setPickedCity}/>
-          <Selector type={0} label={'Pickup date'} sampleText={pickupDay.format('MMMM D, YYYY')} icon={checkin} setShowSelector={setshowSelectorPick} showSelector={showSelectorPick} setDay={setPickupDay} closeOther={()=>{setshowSelectorRet(false)}}/>
-          <Selector type={0} label={'Return date'} sampleText={returnDay.format('MMMM D, YYYY')} icon={checkout} setShowSelector={setshowSelectorRet} showSelector={showSelectorRet} setDay={setReturnDay} dateValidation={invalidDates} closeOther={()=>{setshowSelectorPick(false)}}/>
-          <div className='blue-btn sm:mx-2 sm:my-3' onClick={()=>{console.warn(pickupDay, returnDay)}}>Choose your car</div>
+          <SelectorsPanel showLabel={true}/>
+          <Link to="/rent" className='blue-btn sm:mx-2 sm:my-3'>Choose your car</Link>
         </div>
     </div>
   )

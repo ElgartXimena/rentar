@@ -1,23 +1,9 @@
 import React from 'react'
 import { cronos, emptystar, filledstar, gear, halfstar, luggage, seat } from '../../assets'
-
+import { getStarArray } from '../../Utils/starsCalculator'
 const CarCard = ({}) => {
-    const carItem = {carImg: 'https://i.postimg.cc/ZngDYKnP/fiat-cronos.jpg', make:'Fiat', model:'Cronos', year:'2024', seats:'4', luggage:'2', gear:'Manual', rating:4.3, price:'$19' }
-    function getStarArray(){
-        let rate = 1;
-        let stars = [];
-        while (rate < carItem.rating){
-            stars.push(filledstar);
-            rate++;
-        }
-        let emptystars = 5 - carItem.rating;
-        carItem.rating !== Math.trunc(carItem.rating) ? (stars.push(halfstar), emptystars--) : null;
-        while (emptystars > 0){
-            stars.push(emptystar);
-            emptystars--;
-        }
-        return stars;
-    }
+    const carItem = {carImg: 'https://i.postimg.cc/ZngDYKnP/fiat-cronos.jpg', make:'Fiat', model:'Cronos', year:'2024', seats:'4', luggage:'2', gear:'Manual', rating:3.6, price:'$19' }
+    
     return (
     <div className='flex flex-col rounded-[28px] drop-shadow-lg hover:drop-shadow-2xl bg-white transition-all ease-in-out duration-350 w-auto my-12 min-w-[300px]'>
         <div
@@ -37,7 +23,7 @@ const CarCard = ({}) => {
                 </div>
                 <div className='flex flex-row items-center'>
                     {
-                        getStarArray().map((srcImg, index) => {
+                        getStarArray({carItem}).map((srcImg, index) => {
 						return (
 							<img
 								key={index}

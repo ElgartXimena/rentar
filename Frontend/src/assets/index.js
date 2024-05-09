@@ -13,7 +13,8 @@ import halfstar from './Icons/half-star.svg'
 import quotes from './Icons/comment-quote.svg'
 import volante from './Icons/volante.png'
 import volanteblanco from './Icons/volante-blanco.png'
-
+import search from './Icons/search.svg'
+import cross from './Icons/cross.svg'
 import chevrolet from './Images/chevrolet.svg'
 import fiat from './Images/fiat.svg'
 import ford from './Images/ford.svg'
@@ -58,5 +59,7 @@ export {
     userphoto,
     quotes,
     volante,
-    volanteblanco
+    volanteblanco,
+    search,
+    cross
 };
