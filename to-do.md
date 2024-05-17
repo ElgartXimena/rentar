@@ -1,6 +1,7 @@
 # API
-- Crear model de booking (bookingModel)
+- ~~Crear model de booking (bookingModel)~~
 - Crear controllers
-- Crear routes
-- Definir nombres endpoints
-- Terminar funcionalidades front
+- Crear funciones models
+- ~~Crear routes~~
+- ~~Definir nombres endpoints~~
+- Terminar funcionalidades

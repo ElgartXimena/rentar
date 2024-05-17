@@ -1,15 +1,35 @@
-//sample code for creating RESTapi endpoints
-
 import { Router } from 'express'
-
-import { createMovie, updateMovie, deleteMovie, getMovieById, getMovies } from '../controllers/sample-ctrl'
 
 const router = Router()
 
-router.post('/movie', createMovie)
-router.put('/movie/:id', updateMovie)
-router.delete('/movie/:id', deleteMovie)
-router.get('/movie/:id', getMovieById)
-router.get('/movies', getMovies)
+//CARS ENDPOINTS
+router.get('/cars', findCars)
+router.get('/cars/:category', findCarsByCategory)
+router.get('/cars/toprated', findCarsByRate)
+router.get('/cars/:make', findCarsByMake)
+router.post('/cars', addCar)
+router.delete('/cars', deleteCar)
+router.put('/cars', updateCar)
+
+//CITIES ENDPOINTS
+router.put('/cities', updateCityAddress)
+router.post('/cities', addCity)
+router.delete('/cities', deleteCity)
+router.get('/cities', findCities)
+
+//BOOKING ENDPOINTS
+router.post('/bookings', createBooking)
+router.delete('/bookings/:idbooking', deleteBooking)
+
+//REVIEWS ENDPOINTS
+router.post('/reviews', addReview)
+router.delete('/reviews/:idreview', deleteReview)
+router.put('/reviews', updateReview)
+router.get('/reviews', findReviews)
+
+//USER ENDPOINTS
+router.post('/user', addUser)
+router.delete('/user/:userid', deleteUser)
+router.put('/user', updateUser)
 
 export default router
