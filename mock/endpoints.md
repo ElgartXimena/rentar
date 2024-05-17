@@ -15,19 +15,49 @@
 - *updateCars*: modificar varios autos 
 
 # city-model
-- *updateCityAddress*: cambiar la dirección de una sucursal
-- *addCity*: agregar una sucursal
-- *deleteCity*: eliminar una sucursal
-- *findCities*: listar ciudades con sucursales
+- `/cities/update` 
+  - **input**: { idCity: String, newAddress: String }
+  - **output**: { response: Number }
+  - **updateCityAddress**: cambiar la dirección de una sucursal
+- `/cities/create`
+  - **input**: { city: City } 
+  - **output**: { response: String }
+  - **addCity**: agregar una sucursal
+- `/cities/delete`
+  - **input**: { idCity: String } 
+  - **output**: { response: String }
+  - **deleteCity**: eliminar una sucursal
+- `/cities`
+  - **input**: {  } 
+  - **output**: { cities: [{datosCity1}, {datosCity2}] }
+  - **findCities**: listar ciudades con sucursales
 
 # booking-model
-- *createBooking*: crear la reserva de un auto con fechas dadas
-- *deleteBooking*: cancelar una reserva
+- `/bookings/create`
+  - **input**: { booking: Booking } 
+  - **output**: { response: String }
+  - **createBooking**: crear la reserva de un auto con fechas dadas
+- `/bookings/delete`
+  - **input**: { idBooking: String } 
+  - **output**: { response: String }
+  - **deleteBooking**: cancelar una reserva
 
 # review-model
-- *addReview*: agregar una review
-- *deleteReview*: eliminar una review
-- *updateReview*: editar una review (text y rating)
+- `/reviews/create`
+  - **input**: { review: Review } 
+  - **output**: { response: String }
+  - **addReview**: agregar una review
+- `/reviews/delete`
+  - **input**: { idReview: String } 
+  - **output**: { response: String }
+  - **deleteReview**: eliminar una review
+- `/reviews/update`
+  - **input**: { user: User } 
+  - **output**: { response: String }
+  - **updateReview**: editar una review (text y rating)
+- `/reviews`
+  - **input**: {  } 
+  - **output**: { reviews: [{datosReview1}, {datosReview2}] }
 
 # user-model
 - *addUser*: agregar un usuario
