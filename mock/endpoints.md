@@ -1,9 +1,12 @@
 # car-model
-- *findCars*: encontrar un auto disponible en una ciudad entre un rango de fechas
+- `/cars` 
+  - **input**: { idCiudad, fechaIn, fechaOut }
+  - **output**: { cars: [{datosAuto1}, {datosAuto2}, {datosAuto3}]}
+  - **findCars**: encontrar autos disponibles en una ciudad entre un rango de fechas
 - *findCarsByCategory*: encontrar un auto por category (sedan, suv, etc)
-- *findCarsByRate*: encontrar autos mejor rateados
+- *findCarsByRate*: encontrar autos mejor rateados (seccion toprated)
 - *findCarsByMake*: encontrar autos por marca
-- *orderCars*: ordenar autos
+- *orderCars*: ordenar autos (Price high to low, low to high, top rated first)
 - *addCar*: insertar un auto
 - *addCars*: insertar varios autos
 - *deleteCar*: eliminar un auto
@@ -15,6 +18,11 @@
 - *updateCityAddress*: cambiar la dirección de una sucursal
 - *addCity*: agregar una sucursal
 - *deleteCity*: eliminar una sucursal
+- *findCities*: listar ciudades con sucursales
+
+# booking-model
+- *createBooking*: crear la reserva de un auto con fechas dadas
+- *deleteBooking*: cancelar una reserva
 
 # review-model
 - *addReview*: agregar una review
