@@ -1,21 +1,52 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose');
+const schema = mongoose.Schema;
 
-const Car = mongoose.Schema(
-    {
-        make: { type: String, required: true },
-        model: { type: String, required: true },
-        url: { type: String, required: true },
-        year: { type: Number, required: true },
-        seats: { type: Number, required: true },
-        luggage: { type: Number, required: true },
-        category: { type: String, required: true },
-        price: { type: Number, required: true },
-        rating: { type: Number, required: true },
-        city: { type: String, required: true },
+const carSchema = new schema({
+    make: { 
+        type: String, 
+        required: true 
     },
-)
+    model: { 
+        type: String, 
+        required: true 
+    },
+    url: { 
+        type: String, 
+        required: true 
+    },
+    year: { 
+        type: Number, 
+        required: true 
+    },
+    seats: { 
+        type: Number, 
+        required: true 
+    },
+    luggage: { 
+        type: Number, 
+        required: true 
+    },
+    category: { 
+        type: String, 
+        required: true 
+    },
+    price: { 
+        type: Number, 
+        required: true 
+    },
+    rating: { 
+        type: Number, 
+        required: true 
+    },
+    city: { 
+        type: String, 
+        required: true 
+    },
+});
 
-var CarModel = mongoose.model('cars', Car);
+module.exports = mongoose.model('car', carSchema);
+
+//var CarModel = mongoose.model('cars', Car);
 //El modelo CarModel está configurado para trabajar con la colección de MongoDB 
 //llamada "cars" (MongoDB pluraliza automáticamente los nombres de las colecciones).
 
