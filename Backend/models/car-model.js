@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
 const schema = mongoose.Schema;
 
 const carSchema = new schema({
@@ -44,15 +45,24 @@ const carSchema = new schema({
     },
 });
 
-module.exports = mongoose.model('car', carSchema);
+const CarModel = mongoose.model('Car', carSchema);
 
-//var CarModel = mongoose.model('cars', Car);
+//var CarModel = mongoose.model('car', carSchema);
 //El modelo CarModel está configurado para trabajar con la colección de MongoDB 
 //llamada "cars" (MongoDB pluraliza automáticamente los nombres de las colecciones).
 
 async function findCarByMake(name){
     try {
         return await CarModel.findOne({ make: name });
+    } catch (error) {
+        console.error('Error al ejecutar la consulta:', error);
+        throw error; // Re-lanza el error para manejarlo en otro lugar si es necesario
+    }
+} 
+
+async function findCars(){
+    try {
+        return await CarModel.find();
     } catch (error) {
         console.error('Error al ejecutar la consulta:', error);
         throw error; // Re-lanza el error para manejarlo en otro lugar si es necesario
@@ -66,6 +76,15 @@ async function createCar(car){
     } catch (error) {
         console.error('Error al ejecutar la consulta:', error);
         throw error; // Re-lanza el error para manejarlo en otro lugar si es necesario
+    }
+}
+
+async function addCars(cars){
+    try {
+        return await CarModel.create(cars)
+    } catch (error) {
+        console.error('Error al ejecutar la consulta: ', error);
+        throw error;
     }
 }
 
@@ -89,4 +108,4 @@ async function deleteCar(filter){
     }
 }
 
-export default {findCarByMake, createCar, updateCar, deleteCar}
+export default CarModel;

@@ -1,6 +1,7 @@
 import express from "express";
 import {PORT, mongoDBURL} from "./config.js";
 import mongoose from "mongoose";
+import router from "./routes/api.js";
 import { ObjectId, MongoClient } from 'mongodb';
 import carmodel from "./models/car-model.js";
 
@@ -10,9 +11,13 @@ const url = `mongodb://root:1234@db:27017/${dbName}?authSource=admin`;
 //const uri = mongoDBURL;
 //const client = new MongoClient(uri);
 
-app.get('/', (request, response) => {
+app.use(express.json());
+
+app.use('/', router);
+
+/* app.get('/', (request, response) => {
     return response.status(234).send('Hello World mdfkr');
-});
+}); */
 
 mongoose
 .connect(url)

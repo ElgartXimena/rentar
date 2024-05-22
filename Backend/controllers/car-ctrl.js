@@ -1,125 +1,60 @@
-import Movie, { findOne, findOneAndDelete, find } from '../models/sample-model'
+import CarModel from "../models/car-model.js"
 
-createMovie = (req, res) => {
-    const body = req.body
+const findCars = async (req, res) => {
+  try {
+    const cars = await CarModel.find();
+    res.status(200).json(cars);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 
-    if (!body) {
-        return res.status(400).json({
-            success: false,
-            error: 'You must provide a movie',
-        })
-    }
+const findCarsByCategory = async (req, res) => {
+  try {
+    const { category } = req.params;
+    const cars = await CarModel.find({ category });
+    res.status(200).json(cars);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 
-    const movie = new Movie(body)
+const addCar = async (req, res) => {
+  try {
+    const newCar = new CarModel(req.body);
+    const savedCar = await newCar.save();
+    res.status(201).json(savedCar);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 
-    if (!movie) {
-        return res.status(400).json({ success: false, error: err })
-    }
+const deleteCar = async (req, res) => {
+  try {
+    const { id } = req.body;
+    const deletedCar = await CarModel.findByIdAndDelete(id);
+    if (!deletedCar) return res.status(404).json({ message: 'Car not found' });
+    res.status(200).json({ message: 'Car deleted successfully' });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 
-    movie
-        .save()
-        .then(() => {
-            return res.status(201).json({
-                success: true,
-                id: movie._id,
-                message: 'Movie created!',
-            })
-        })
-        .catch(error => {
-            return res.status(400).json({
-                error,
-                message: 'Movie not created!',
-            })
-        })
-}
-
-updateMovie = async (req, res) => {
-    const body = req.body
-
-    if (!body) {
-        return res.status(400).json({
-            success: false,
-            error: 'You must provide a body to update',
-        })
-    }
-
-    findOne({ _id: req.params.id }, (err, movie) => {
-        if (err) {
-            return res.status(404).json({
-                err,
-                message: 'Movie not found!',
-            })
-        }
-        movie.name = body.name
-        movie.time = body.time
-        movie.rating = body.rating
-        movie
-            .save()
-            .then(() => {
-                return res.status(200).json({
-                    success: true,
-                    id: movie._id,
-                    message: 'Movie updated!',
-                })
-            })
-            .catch(error => {
-                return res.status(404).json({
-                    error,
-                    message: 'Movie not updated!',
-                })
-            })
-    })
-}
-
-deleteMovie = async (req, res) => {
-    await findOneAndDelete({ _id: req.params.id }, (err, movie) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-
-        if (!movie) {
-            return res
-                .status(404)
-                .json({ success: false, error: `Movie not found` })
-        }
-
-        return res.status(200).json({ success: true, data: movie })
-    }).catch(err => console.log(err))
-}
-
-getMovieById = async (req, res) => {
-    await findOne({ _id: req.params.id }, (err, movie) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-
-        if (!movie) {
-            return res
-                .status(404)
-                .json({ success: false, error: `Movie not found` })
-        }
-        return res.status(200).json({ success: true, data: movie })
-    }).catch(err => console.log(err))
-}
-
-getMovies = async (req, res) => {
-    await find({}, (err, movies) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-        if (!movies.length) {
-            return res
-                .status(404)
-                .json({ success: false, error: `Movie not found` })
-        }
-        return res.status(200).json({ success: true, data: movies })
-    }).catch(err => console.log(err))
-}
+const updateCar = async (req, res) => {
+  try {
+    const { id, ...updateData } = req.body;
+    const updatedCar = await CarModel.findByIdAndUpdate(id, updateData, { new: true });
+    if (!updatedCar) return res.status(404).json({ message: 'Car not found' });
+    res.status(200).json(updatedCar);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 
 export default {
-    createMovie,
-    updateMovie,
-    deleteMovie,
-    getMovies,
-    getMovieById,
-}
+    findCars,
+    findCarsByCategory,
+    addCar,
+    deleteCar,
+    updateCar
+};
