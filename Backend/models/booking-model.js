@@ -1,25 +1,24 @@
-const mongoose = require('mongoose');
-const schema = mongoose.Schema;
-const user = require('./user-model');
-const car = require('./car-model');
-const city = require('./city-model')
+import mongoose from 'mongoose';
+import UserModel from './user-model.js';
+import CarModel from './car-model.js';
+import CityModel from './city-model.js';
 
-// user, car, datein, dateout, city, totalprice
+const schema = mongoose.Schema;
 
 const bookingSchema = new schema({
     user: { 
         type: schema.Types.ObjectId, 
-        ref: user,
+        ref: UserModel,
         required: true 
     },
     car: { 
         type: schema.Types.ObjectId,
-        ref: car, 
+        ref: CarModel, 
         required: true 
     },
     city: { 
         type: schema.Types.ObjectId,
-        ref: city, 
+        ref: CityModel, 
         required: true 
     },
     dateIn: { 
@@ -36,8 +35,6 @@ const bookingSchema = new schema({
     },
 });
 
-module.exports = mongoose.model('booking', bookingSchema);
+const BookingModel = mongoose.model('Booking', bookingSchema);
 
-//var BookingModel = mongoose.model('bookings', Booking);
-
-export default {}
+export default BookingModel;

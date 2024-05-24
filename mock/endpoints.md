@@ -10,7 +10,7 @@
 - `/cars/toprated` `GET`
   - **input**: { } 
   - **output**: { cars: [{datosAuto1}, {datosAuto2}, {datosAuto3}] }
-  - **findCarsByRate**: encontrar autos mejor rateados (seccion toprated)
+  - **findTopRatedCars**: encontrar autos mejor rateados (seccion toprated)
 - `/cars/:make` `GET`
   - **input**: { make: String } 
   - **output**: { cars: [{datosAuto1}, {datosAuto2}, {datosAuto3}] }
@@ -55,6 +55,10 @@
   - **input**: { idbooking: String } 
   - **output**: { response: String }
   - **deleteBooking**: cancelar una reserva
+- `/bookings` `GET`
+  - **input**: { iduser: String } 
+  - **output**: { bookings: [{datosBooking1}, {datosBooking2}] }
+  - **findBookings**: listar las reservas asociadas a un usuario
 
 # review-model
 - `/reviews` `POST`
