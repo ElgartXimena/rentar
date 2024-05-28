@@ -7,6 +7,7 @@ import Header from './components/LandingPage/Header.jsx'
 import Footer from './components/LandingPage/Footer.jsx'
 import Rentpage from './components/CarRent/Rentpage.jsx'
 import { useState } from 'react'
+import FinalizeRental from './components/CarRent/FinalizeRental.jsx'
 
 function AppRouter() {
   const [linkScroll, setLinkScroll] = useState(true)
@@ -16,7 +17,8 @@ function AppRouter() {
         <Header linkScroll={linkScroll}/>
         <Routes>
           <Route path="/" element={<App setLinkScroll={()=>{setLinkScroll(true)}}/>} />
-          <Route path="/rent" element={<Rentpage setLinkScroll={()=>{setLinkScroll(false)}}/>} />
+          <Route path="/rent/:city?/:dateIn?/:dateOut?/:type?" element={<Rentpage setLinkScroll={()=>{setLinkScroll(false)}}/>} />
+          <Route path='/finalize' element={<FinalizeRental setLinkScroll={()=>{setLinkScroll(false)}}/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>

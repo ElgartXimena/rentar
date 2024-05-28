@@ -9,6 +9,7 @@ import "swiper/css/free-mode";
 import { FreeMode, Pagination, Navigation } from "swiper/modules";
 import ReviewCard from '../Cards/ReviewCard';
 import { volante } from '../../assets';
+import { Link } from 'react-router-dom';
 const Reviews = () => {
     
   return (
@@ -47,7 +48,7 @@ const Reviews = () => {
             text-transparent font-poppins text-5xl font-semibold bg-clip-text">
                 Thousands of clients trust in us, join them now!
             </span>
-            <div className='blue-btn mt-10 justify-start'>Start renting</div>
+            <Link to='/rent' className='blue-btn mt-10 justify-start'>Start renting</Link>
         </div>
     </div>
   )
