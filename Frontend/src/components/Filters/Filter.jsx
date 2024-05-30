@@ -38,7 +38,7 @@ const Filter = ({selectedFilter, placeholder, options, hasFilter, prefilter}) =>
                 hover:inner-border-color-black hover:cursor-pointer transition-all`}
                 onClick={()=>{setFilterOpen(!filterOpen)}}
             >
-                <h1 className='font-poppins font-medium'>{selectedPlaceholder ? selectedPlaceholder : placeholder}</h1>
+                <h1 className='font-poppins font-medium whitespace-nowrap'>{selectedPlaceholder ? selectedPlaceholder : placeholder}</h1>
                 <img src={downarrow} className={`${filterOpen ? 'rotate-180' : ''}`}/>
             </div>
             {

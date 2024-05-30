@@ -23,15 +23,13 @@ export default Categories
 
 function CategoryCard({catName, catPhoto, catPrice}) {
     return (
-    <div className='category-card group items-end bg-cover bg-center' 
+    <div className='category-card group items-end bg-cover bg-center overflow-hidden hover:drop-shadow-2xl hover:scale-[1.05]' 
     style={{backgroundImage: `url(${catPhoto})`}}>
-        <div className='flex flex-row justify-between w-full p-4 items-end'>
-            <div className='flex-col flex'>
-                <h1 className='font-poppins font-bold text-3xl text-white'>{catName}</h1>
-                <h1 className='font-poppins font-normal text-xl text-white group-hover:inline whitespace-nowrap group-hover:scale-100 hidden scale-0 bottom-0 transition-all duration-700'>Starts from {catPrice}</h1>
-            </div>
+        <div className='flex flex-col justify-between p-4 w-full items-start group-hover:pt-60 group-hover:bg-color-black/20 group-hover:backdrop-blur-sm transition-all ease-in-out duration-300'>
+            <h1 className='font-poppins font-bold text-3xl text-white'>{catName}</h1>
+            <h1 className='font-poppins font-light text-lg whitespace-nowrap text-white'>Starts from {catPrice}</h1>
             <Link 
-            className='blue-btn group-hover:scale-100 scale-0 transition-all duration-300 bg-white/20 hover:bg-white hover:text-color-black border-white text-white'
+            className='blue-btn mt-4 w-full group-hover:flex group-hover:scale-100 scale-0 hidden transition-all duration-300 bg-white/20 hover:bg-white hover:text-color-black border-white text-white'
             to={`/rent?type=${catName}`}
             >
                 View all

@@ -4,16 +4,17 @@ import { location } from '../../assets'
 import SelectorsPanel from '../selector/SelectorsPanel'
 import CarCard from '../Cards/CarCard'
 import BigCarCard from '../Cards/BigCarCard'
+import Header from '../LandingPage/Header'
 
-const FinalizeRental = ({setLinkScroll}) => {
-  useEffect(()=>{
-    setLinkScroll()
-  },[])
+const FinalizeRental = () => {
+
   return (
-    <div className='flex flex-row gap-3 w-full h-full p-10 mt-16'>
+    <>
+    <Header linkScroll={true}/>
+    <div className='flex flex-row gap-3 w-full h-full p-10 mt-14'>
       <BigCarCard finalize={true}/>
       <div className='flex-[0.4] flex-col justify-between p-5'>{/*dataa*/}
-          <div className='flex flex-col gap-10'>
+          <div className='flex flex-col gap-10 w-full'>
             <span className="bg-gradient-to-br from-color-violet from-40% to-color-blue 
             text-transparent font-poppins text-5xl font-semibold bg-clip-text">
                 It's almost yours
@@ -38,6 +39,7 @@ const FinalizeRental = ({setLinkScroll}) => {
           <div className='blue-btn rounded-lg hover:rounded-sm mt-4'>Finish</div>
       </div>
     </div>
+    </>
   )
 }
 

@@ -7,8 +7,8 @@ const carItem = {carImg: 'https://i.postimg.cc/ZngDYKnP/fiat-cronos.jpg', make:'
 return (
     <div 
         className={`
-        ${finalize ? 'flex-1 ' : 'flex max-w-[600px] max-h-[700px] min-h-[400px]'}
-        flex rounded-[32px] bg-black w-full
+        ${finalize ? 'flex-1 ' : 'flex flex-grow min-w-96 max-w-[800px] max-h-[700px] min-h-[400px]'}
+        rounded-[32px] bg-black
         relative items-start overflow-hidden bg-cover 
         bg-center hover:drop-shadow-2xl hover:scale-[1.005] transition-all duration-300 
         hover:cursor-pointer`

@@ -18,6 +18,9 @@ import whiteGear from './Icons/whiteGear.svg'
 import whiteLuggage from './Icons/whiteLuggage.svg'
 import whiteSeat from './Icons/whiteSeat.svg'
 import whiteStar from './Icons/whiteStar.svg'
+import user from './Icons/user.svg'
+import car from './Icons/car.svg'
+import exit from './Icons/exit.svg'
 
 import chevrolet from './Images/chevrolet.svg'
 import fiat from './Images/fiat.svg'
@@ -33,7 +36,6 @@ import suv from './Images/suv.png'
 import van from './Images/van.png'
 import userphoto from './Images/userphoto.jpg'
 import cronos from './Images/Cronos8.jpg'
-
 
 export {
     logo,
@@ -70,4 +72,7 @@ export {
     whiteLuggage,
     whiteSeat,
     whiteStar,
+    user,
+    car,
+    exit
 };

@@ -1,32 +1,38 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import { Route, BrowserRouter, Routes } from "react-router-dom"
-import App from './App.jsx'
-import Header from './components/LandingPage/Header.jsx'
-import Footer from './components/LandingPage/Footer.jsx'
-import Rentpage from './components/CarRent/Rentpage.jsx'
-import { useState } from 'react'
-import FinalizeRental from './components/CarRent/FinalizeRental.jsx'
+import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import App from './App.jsx';
+import Header from './components/LandingPage/Header.jsx';
+import Footer from './components/LandingPage/Footer.jsx';
+import Rentpage from './components/CarRent/Rentpage.jsx';
+import FinalizeRental from './components/CarRent/FinalizeRental.jsx';
+import Login from './components/Login/Login.jsx';
+import Bookings from './components/Bookings/Bookings.jsx';
 
 function AppRouter() {
-  const [linkScroll, setLinkScroll] = useState(true)
+  const [linkScroll, setLinkScroll] = useState(true);
+  const [location, setLocation] = useState("");
+
+  useEffect(() => {
+    setLocation(window.location.pathname);
+  }, [window.location.pathname]);
+
   return (
     <React.StrictMode>
       <BrowserRouter>
-        <Header linkScroll={linkScroll}/>
         <Routes>
-          <Route path="/" element={<App setLinkScroll={()=>{setLinkScroll(true)}}/>} />
-          <Route path="/rent/:city?/:dateIn?/:dateOut?/:type?" element={<Rentpage setLinkScroll={()=>{setLinkScroll(false)}}/>} />
-          <Route path='/finalize' element={<FinalizeRental setLinkScroll={()=>{setLinkScroll(false)}}/>}/>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<App/>} />
+          <Route path="/rent/:city?/:dateIn?/:dateOut?/:type?" element={<Rentpage />} />
+          <Route path='/finalize' element={<FinalizeRental />} />
+          <Route path='/bookings' element={<Bookings />} />
         </Routes>
-        <Footer />
       </BrowserRouter>
     </React.StrictMode>
   );
 }
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <AppRouter />
-);
+// Ensure the root is created only once
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<AppRouter />);
