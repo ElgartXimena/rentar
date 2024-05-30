@@ -1,5 +1,4 @@
 import logo from './Icons/logo.svg'
-import herobg from './Images/hero-bg-photo.jpg'
 import downarrow from './Icons/down-arrow.svg'
 import checkin from './Icons/check-in-calendar.svg'
 import checkout from './Icons/check-out-calendar.svg'
@@ -15,22 +14,29 @@ import volante from './Icons/volante.png'
 import volanteblanco from './Icons/volante-blanco.png'
 import search from './Icons/search.svg'
 import cross from './Icons/cross.svg'
+import whiteGear from './Icons/whiteGear.svg'
+import whiteLuggage from './Icons/whiteLuggage.svg'
+import whiteSeat from './Icons/whiteSeat.svg'
+import whiteStar from './Icons/whiteStar.svg'
+import user from './Icons/user.svg'
+import car from './Icons/car.svg'
+import exit from './Icons/exit.svg'
+
 import chevrolet from './Images/chevrolet.svg'
 import fiat from './Images/fiat.svg'
 import ford from './Images/ford.svg'
 import renault from './Images/renault.svg'
 import toyota from './Images/Toyota.svg'
 import vw from './Images/vw.svg'
-
+import herobg from './Images/hero-bg-photo.jpg'
 import sedan from './Images/sedan.png'
 import pickup from './Images/pickup.png'
 import sport from './Images/sport.png'
 import suv from './Images/suv.png'
 import van from './Images/van.png'
-
 import userphoto from './Images/userphoto.jpg'
-
 import cronos from './Images/Cronos8.jpg'
+
 export {
     logo,
     herobg,
@@ -61,5 +67,12 @@ export {
     volante,
     volanteblanco,
     search,
-    cross
+    cross,
+    whiteGear,
+    whiteLuggage,
+    whiteSeat,
+    whiteStar,
+    user,
+    car,
+    exit
 };

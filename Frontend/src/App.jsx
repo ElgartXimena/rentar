@@ -7,17 +7,16 @@ import Toprated from './components/LandingPage/Toprated';
 import Reviews from './components/LandingPage/Reviews';
 import Footer from './components/LandingPage/Footer';
 
-function App({setLinkScroll}) {
-  useEffect(()=>{
-    setLinkScroll()
-  },[])
+function App() {
   return ( 
     <>
+      <Header linkScroll={true}/>
       <Hero/>
       <Partnership/>
       <Categories/>
       <Toprated/>
       <Reviews/>
+      <Footer/>
     </>
   )
 }
