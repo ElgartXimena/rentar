@@ -1,4 +1,4 @@
-import CityModel from "../models/city-model"
+import CityModel from "../models/city-model.js"
 
 const updateCityAddress = async (req, res) => {
   try {
