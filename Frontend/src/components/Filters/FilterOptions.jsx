@@ -6,7 +6,7 @@ const FilterOptions = ({setFilterOpen, addFilter, options}) => {
         <div 
         className='flex-col z-50 bg-white rounded-2xl drop-shadow-2xl z-100 font-poppins text-color-stronggray mt-2
         overflow-y-auto scrollbar scrollbar-thumb-color-middlegray  scrollbar-w-2 scrollbar-thumb-rounded max-h-[200px]
-        w-fit'>
+        w-full'>
           <ul>
             {options.map((item) => (
             <li 

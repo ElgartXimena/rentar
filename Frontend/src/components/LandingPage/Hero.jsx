@@ -1,29 +1,29 @@
 import React, { useState, useEffect }from 'react'
-import dayjs from "dayjs";
 import { herobg } from '../../constants'
-import Selector from '../selector/Selector'
-import { location, checkin, checkout } from '../../constants'
-import DatePicker from '../selector/DatePicker'
 import { Link } from 'react-router-dom';
 import SelectorsPanel from '../selector/SelectorsPanel';
 const Hero = () => {
 
   return (
-    <div
-    id="Home"
-    className="h-[500px] mx-10 my-5 mt-24 bg-cover bg-center flex items-center justify-center rounded-3xl"
-    style={{ backgroundImage: `url(${herobg})` }}
-    
-    >
+    <div className='flex flex-col sm:flex-col lg:flex-row xl:flex-row 2xl:flex-row  gap-4 mx-10 h-svh pt-20 pb-10'>
         <div 
-        className="bg-white/30 text-white items-end
-        px-4 py-5 backdrop-blur-md drop-shadow-2xl border-2 border-white rounded-3xl mt-[500px]
-        flex-row flex "
+        className="bg-white/30 text-white items-start
+        px-4 py-5 drop-shadow-2xl border-2 border-white rounded-3xl 
+        flex-col flex-1 flex justify-between "
         >
-        {/* Absolute positioned div */}
+        <h1 className='flex mb-10 p-2'>
+          <span className="bg-gradient-to-br from-color-violet from-40% to-color-blue 
+            text-transparent font-poppins text-7xl font-semibold bg-clip-text">
+                Start your journey today
+          </span>
+        </h1>
           <SelectorsPanel showLabel={true}/>
-          <Link to="/rent" className='blue-btn sm:mx-2 sm:my-3'>Choose your car</Link>
+          <Link to="/rent" className='blue-btn w-full mt-4'>Choose your car</Link>
         </div>
+        <div className="flex-1 rounded-3xl overflow-hidden">
+            <img src={herobg} className="w-full h-full object-cover" alt="Hero Image"/>
+        </div>
+
     </div>
   )
 }
