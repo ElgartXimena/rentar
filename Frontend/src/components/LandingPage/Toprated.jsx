@@ -7,7 +7,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/free-mode";
 
-import { FreeMode, Pagination, Navigation } from "swiper/modules";
 import { downarrow } from '../../assets';
 const Toprated = () => {
   const topcars = [{id:0, car: <CarCard/>},{id:1, car: <CarCard/>},{id:2, car: <CarCard/>},{id:3, car: <CarCard/>},{id:4, car: <CarCard/>},{id:5, car: <CarCard/>},]
@@ -37,7 +36,6 @@ const Toprated = () => {
   
   useEffect(()=>{
     move(scrolling);
-    //No anda porque una vez que se pone en 300, si tocas otra vez en fwd no varia pq sigue estando 300
   }, [scrolling])
 
   return (
