@@ -7,6 +7,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.2,
         "city": "Mar del Plata"
@@ -19,6 +20,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "automatic",
         "price": 39,
         "rating": 4.2,
         "city": "Mar del Plata"
@@ -31,6 +33,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.2,
         "city": "Tandil"
@@ -43,6 +46,7 @@
         "seats": 5,
         "luggage": 2,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.5,
         "city": "Tandil"
@@ -55,6 +59,7 @@
         "seats": 5,
         "luggage": 2,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.5,
         "city": "Mar del Plata"
@@ -67,6 +72,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "automatic",
         "price": 39,
         "rating": 4.4,
         "city": "Mar del Plata"
@@ -79,6 +85,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "automatic",
         "price": 39,
         "rating": 4.4,
         "city": "Tandil"
@@ -91,6 +98,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.4,
         "city": "Tandil"
@@ -103,6 +111,7 @@
         "seats": 5,
         "luggage": 2,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.0,
         "city": "Tandil"
@@ -115,6 +124,7 @@
         "seats": 5,
         "luggage": 2,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.0,
         "city": "Tandil"
@@ -127,6 +137,7 @@
         "seats": 5,
         "luggage": 2,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.0,
         "city": "Mar del Plata"
@@ -139,6 +150,7 @@
         "seats": 5,
         "luggage": 2,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.0,
         "city": "Mar del Plata"
@@ -151,6 +163,7 @@
         "seats": 5,
         "luggage": 2,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.2,
         "city": "Tandil"
@@ -163,6 +176,7 @@
         "seats": 5,
         "luggage": 2,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.2,
         "city": "Tandil"
@@ -175,6 +189,7 @@
         "seats": 5,
         "luggage": 2,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.2,
         "city": "Mar del Plata"
@@ -187,6 +202,7 @@
         "seats": 5,
         "luggage": 2,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.2,
         "city": "Mar del Plata"
@@ -199,6 +215,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.3,
         "city": "Tandil"
@@ -211,6 +228,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.3,
         "city": "Tandil"
@@ -223,6 +241,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.3,
         "city": "Mar del Plata"
@@ -235,6 +254,7 @@
         "seats": 5,
         "luggage": 4,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.1,
         "city": "Mar del Plata"
@@ -247,6 +267,7 @@
         "seats": 5,
         "luggage": 4,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.1,
         "city": "Mar del Plata"
@@ -259,6 +280,7 @@
         "seats": 5,
         "luggage": 4,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.1,
         "city": "Tandil"
@@ -271,6 +293,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 3.9,
         "city": "Tandil"
@@ -283,6 +306,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 3.9,
         "city": "Tandil"
@@ -295,6 +319,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 3.9,
         "city": "Mar del Plata"
@@ -307,6 +332,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 3.9,
         "city": "Mar del Plata"
@@ -319,6 +345,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.4,
         "city": "Tandil"
@@ -331,6 +358,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "automatic",
         "price": 39,
         "rating": 4.4,
         "city": "Mar del Plata"
@@ -343,6 +371,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sedan",
+        "transmission": "manual",
         "price": 39,
         "rating": 4.4,
         "city": "Mar del Plata"
@@ -355,6 +384,7 @@
         "seats": 5,
         "luggage": 4,
         "category": "SUV",
+        "transmission": "manual",
         "price": 50,
         "rating": 4.6,
         "city": "Tandil"
@@ -367,6 +397,7 @@
         "seats": 5,
         "luggage": 4,
         "category": "SUV",
+        "transmission": "automatic",
         "price": 50,
         "rating": 4.6,
         "city": "Mar del Plata"
@@ -379,6 +410,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "SUV",
+        "transmission": "manual",
         "price": 50,
         "rating": 4.3,
         "city": "Tandil"
@@ -391,6 +423,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "SUV",
+        "transmission": "manual",
         "price": 50,
         "rating": 4.3,
         "city": "Tandil"
@@ -403,6 +436,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "SUV",
+        "transmission": "manual",
         "price": 50,
         "rating": 4.3,
         "city": "Mar del Plata"
@@ -415,6 +449,7 @@
         "seats": 4,
         "luggage": 2,
         "category": "SUV",
+        "transmission": "automatic",
         "price": 50,
         "rating": 4.7,
         "city": "Mar del Plata"
@@ -427,6 +462,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "SUV",
+        "transmission": "manual",
         "price": 50,
         "rating": 4.6,
         "city": "Tandil"
@@ -439,6 +475,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "SUV",
+        "transmission": "automatic",
         "price": 50,
         "rating": 4.3,
         "city": "Mar del Plata"
@@ -451,6 +488,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "SUV",
+        "transmission": "manual",
         "price": 50,
         "rating": 4.3,
         "city": "Tandil"
@@ -463,6 +501,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "SUV",
+        "transmission": "automatic",
         "price": 50,
         "rating": 4.7,
         "city": "Mar del Plata"
@@ -475,6 +514,7 @@
         "seats": 5,
         "luggage": 4,
         "category": "SUV",
+        "transmission": "manual",
         "price": 50,
         "rating": 4.5,
         "city": "Tandil"
@@ -487,6 +527,7 @@
         "seats": 5,
         "luggage": 4,
         "category": "SUV",
+        "transmission": "automatic",
         "price": 50,
         "rating": 4.5,
         "city": "Mar del Plata"
@@ -499,6 +540,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Pickup",
+        "transmission": "manual",
         "price": 69,
         "rating": 4.0,
         "city": "Tandil"
@@ -511,6 +553,7 @@
         "seats": 5,
         "luggage": 4,
         "category": "Pickup",
+        "transmission": "automatic",
         "price": 69,
         "rating": 4.1,
         "city": "Mar del Plata"
@@ -523,6 +566,7 @@
         "seats": 5,
         "luggage": 4,
         "category": "Pickup",
+        "transmission": "manual",
         "price": 69,
         "rating": 4.3,
         "city": "Tandil"
@@ -535,6 +579,7 @@
         "seats": 5,
         "luggage": 4,
         "category": "Pickup",
+        "transmission": "automatic",
         "price": 69,
         "rating": 4.4,
         "city": "Mar del Plata"
@@ -547,6 +592,7 @@
         "seats": 9,
         "luggage": 6,
         "category": "Van",
+        "transmission": "manual",
         "price": 79,
         "rating": 4.2,
         "city": "Tandil"
@@ -559,6 +605,7 @@
         "seats": 9,
         "luggage": 6,
         "category": "Van",
+        "transmission": "manual",
         "price": 79,
         "rating": 4.2,
         "city": "Mar del Plata"
@@ -571,6 +618,7 @@
         "seats": 2,
         "luggage": 6,
         "category": "Van",
+        "transmission": "manual",
         "price": 79,
         "rating": 4.1,
         "city": "Tandil"
@@ -583,6 +631,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Van",
+        "transmission": "manual",
         "price": 79,
         "rating": 4.0,
         "city": "Mar del Plata"
@@ -595,6 +644,7 @@
         "seats": 4,
         "luggage": 2,
         "category": "Sport",
+        "transmission": "manual",
         "price": 89,
         "rating": 4.8,
         "city": "Mar del Plata"
@@ -607,6 +657,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sport",
+        "transmission": "automatic",
         "price": 89,
         "rating": 4.8,
         "city": "Tandil"
@@ -619,6 +670,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sport",
+        "transmission": "automatic",
         "price": 89,
         "rating": 4.7,
         "city": "Mar del Plata"
@@ -631,6 +683,7 @@
         "seats": 5,
         "luggage": 3,
         "category": "Sport",
+        "transmission": "automatic",
         "price": 89,
         "rating": 4.9,
         "city": "Mar del Plata"

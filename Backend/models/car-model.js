@@ -31,6 +31,10 @@ const carSchema = new schema({
         type: String, 
         required: true 
     },
+    transmission: {
+        type: String,
+        requiered: true
+    },
     price: { 
         type: Number, 
         required: true 

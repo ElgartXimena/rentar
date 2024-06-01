@@ -1,5 +1,6 @@
 import CarModel from "../models/car-model.js"
 import BookingModel from "../models/booking-model.js";
+import CityModel from "../models/city-model.js";
 
 const findCars = async (req, res) => {
   try {
@@ -23,9 +24,12 @@ const findCars = async (req, res) => {
     // Obtener IDs de autos reservados
     const reservedCarIds = bookings.map(booking => booking.car);
 
+    // En CarModel se tiene que buscar por nombre de ciudad
+    const cityObject = await CityModel.findById(city);
+
     // Encontrar autos en la ciudad que no estén reservados en el rango de fechas
     const availableCars = await CarModel.find({
-      city: city,
+      city: cityObject.name,
       _id: { $nin: reservedCarIds },
     });
 
@@ -86,6 +90,19 @@ const addCar = async (req, res) => {
   }
 };
 
+const addCars = async (req, res) => {
+  try {
+    const cars = req.body;
+    const savedCars = await CarModel.insertMany(cars);
+    res.status(201).json(savedCars);
+  } catch (err) {
+    if (err.name === 'ValidationError') {
+      return res.status(400).json({ message: 'Validation error', error: err.message });
+    }
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+};
+
 const deleteCar = async (req, res) => {
   try {
     const { id } = req.params;
@@ -126,7 +143,7 @@ export default {
     findCarsByCategory,
     findTopRatedCars,
     findCarsByMake,
-    addCar,
+    addCars,
     deleteCar,
     updateCar
 };

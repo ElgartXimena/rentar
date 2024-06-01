@@ -32,7 +32,7 @@ const deleteBooking = async (req, res) => {
 const findBookings = async (req, res) => {
   try {
     const { user } = req.params;
-    const bookings = await CarModel.find({ user });
+    const bookings = await BookingModel.find({ user });
     if (bookings.length === 0) {
       return res.status(404).json({ message: `No bookings found to the user ${user}` });
     }
