@@ -23,12 +23,13 @@ const findCars = async (req, res) => {
 
     // Obtener IDs de autos reservados
     const reservedCarIds = bookings.map(booking => booking.car);
-    //En el body se pasa el id de la city. Este es usado para buscar en los bookings, pero para el CarModel es necesario el Name
-    const city_name = await CityModel.findById(city)
-    
+
+    // En CarModel se tiene que buscar por nombre de ciudad
+    const cityObject = await CityModel.findById(city);
+
     // Encontrar autos en la ciudad que no estén reservados en el rango de fechas
     const availableCars = await CarModel.find({
-      city: city_name.name,
+      city: cityObject.name,
       _id: { $nin: reservedCarIds },
     });
 
@@ -89,6 +90,19 @@ const addCar = async (req, res) => {
   }
 };
 
+const addCars = async (req, res) => {
+  try {
+    const cars = req.body;
+    const savedCars = await CarModel.insertMany(cars);
+    res.status(201).json(savedCars);
+  } catch (err) {
+    if (err.name === 'ValidationError') {
+      return res.status(400).json({ message: 'Validation error', error: err.message });
+    }
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+};
+
 const deleteCar = async (req, res) => {
   try {
     const { id } = req.params;
@@ -129,7 +143,7 @@ export default {
     findCarsByCategory,
     findTopRatedCars,
     findCarsByMake,
-    addCar,
+    addCars,
     deleteCar,
     updateCar
 };

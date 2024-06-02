@@ -54,7 +54,7 @@ const findReviews = async (req, res) => {
     if (reviews.length === 0) {
       return res.status(404).json({ message: 'No reviews found' });
     }
-    res.status(200).json(cities);
+    res.status(200).json(reviews);
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err.message });
   }
