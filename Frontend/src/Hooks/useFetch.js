@@ -13,13 +13,14 @@ const useFetch = () => {
         if (queryParams){
             finalEndpoint = apiPaths[endpoint].concat(queryParams)
         }
+        console.log(finalEndpoint)
         //console.log(finalEndpoint)
         //console.log(body ? ( pdfs ? body : JSON.stringify(body)):null)
         try {
         const response = await fetch(finalEndpoint, {
             method: endpointMethods[endpoint],
             headers: {
-            'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
             },
             body: body ? JSON.stringify(body) : null,
         });

@@ -17,6 +17,12 @@ const apiPaths = {
 
 };
 
+const m = {
+  p: 'POST',
+  p_: 'PUT',
+  g: 'GET',
+  d: 'DELETE'
+};
 const endpointMethods = {
   findCars: m.g,
   findByCategory: m.g,
@@ -30,11 +36,5 @@ const endpointMethods = {
 
 };
 
-const m = {
-  p: 'POST',
-  p_: 'PUT',
-  g: 'GET',
-  d: 'DELETE'
-};
 
 export {apiPaths, endpointMethods};

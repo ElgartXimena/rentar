@@ -19,7 +19,6 @@ function AppRouter() {
   }, [window.location.pathname]);
 
   return (
-    <React.StrictMode>
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -29,7 +28,6 @@ function AppRouter() {
           <Route path='/bookings' element={<Bookings />} />
         </Routes>
       </BrowserRouter>
-    </React.StrictMode>
   );
 }
 

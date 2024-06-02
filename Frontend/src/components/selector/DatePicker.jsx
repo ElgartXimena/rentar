@@ -76,7 +76,7 @@ const DatePicker = ({setPickDay, setShowSelector}) => {
 										)}
 										onClick={() => {
 											setSelectDate(date);
-											setPickDay(date);
+											setPickDay(date.format('YYYY-MM-DD'));
 											setShowSelector(false);
 										}}
 									>

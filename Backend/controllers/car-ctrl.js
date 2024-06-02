@@ -1,5 +1,6 @@
 import CarModel from "../models/car-model.js"
 import BookingModel from "../models/booking-model.js";
+import CityModel from "../models/city-model.js";
 
 const findCars = async (req, res) => {
   try {
@@ -22,10 +23,12 @@ const findCars = async (req, res) => {
 
     // Obtener IDs de autos reservados
     const reservedCarIds = bookings.map(booking => booking.car);
-
+    //En el body se pasa el id de la city. Este es usado para buscar en los bookings, pero para el CarModel es necesario el Name
+    const city_name = await CityModel.findById(city)
+    
     // Encontrar autos en la ciudad que no estén reservados en el rango de fechas
     const availableCars = await CarModel.find({
-      city: city,
+      city: city_name.name,
       _id: { $nin: reservedCarIds },
     });
 

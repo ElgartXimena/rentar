@@ -1,19 +1,24 @@
 import React from 'react'
 import { filledstar, whiteGear, whiteLuggage, whiteSeat, whiteStar } from '../../assets'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
-const BigCarCard = ({finalize}) => {
-const carItem = {carImg: 'https://i.postimg.cc/ZngDYKnP/fiat-cronos.jpg', make:'Fiat', model:'Cronos', year:'2024', seats:'4', luggage:'2', gear:'Manual', rating:4.3, price:'$19' }
+const BigCarCard = ({finalize, carItem}) => {
+//const carItem = {carImg: 'https://i.postimg.cc/ZngDYKnP/fiat-cronos.jpg', make:'Fiat', model:'Cronos', year:'2024', seats:'4', luggage:'2', gear:'Manual', rating:4.3, price:'$19' }
+console.log(carItem)
+const navigate = useNavigate()
+const handleRentNow = () => {
+    navigate('/finalize', { state: { car: carItem } });
+}
 return (
     <div 
         className={`
         ${finalize ? 'flex-1 ' : 'flex flex-grow min-w-96 max-w-[800px] max-h-[700px] min-h-[400px]'}
-        rounded-[32px] bg-black
+        rounded-[32px]
         relative items-start overflow-hidden bg-cover 
         bg-center hover:drop-shadow-2xl hover:scale-[1.005] transition-all duration-300 
-        hover:cursor-pointer`
+        hover:cursor-pointer bg-color-lightgray`
         }
-        style={{ backgroundImage: `url(${carItem.carImg})` }}
+        style={{ backgroundImage: `url(${carItem.url})` }}
     >   
         
         <div className='bg-gradient-to-b from-neutral-800/30 via-neutral-900/10 from-10% via-50% to-100% to-black/80
@@ -47,15 +52,14 @@ return (
             </div>
             <div className='flex flex-row justify-between items-center'>
                 <div className='flex flex-row gap-2 items-baseline'>
-                    <h1 className='font-poppins font-bold text-3xl text-color-lightgray'>{carItem.price}</h1>
+                    <h1 className='font-poppins font-bold text-3xl text-color-lightgray'>${carItem.price}</h1>
                     <h1 className='font-poppins font-light text-sm text-color-lightgray'>USD/per day</h1>
                 </div>
                 {finalize ? null : 
-                    <Link
-                    to='/finalize'
-                    className='blue-btn bg-white/10 backdrop-blur-lg hover:bg-white hover:text-color-black border-white text-white'>
+                    <button onClick={handleRentNow}
+                    className='blue-btn bg-white/10 backdrop-blur-lg hover:bg-white hover:text-color-black border-white text-white'>>
                         Rent now
-                    </Link>
+                    </button>
                 }
             </div>
         </div>

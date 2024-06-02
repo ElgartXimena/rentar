@@ -9,13 +9,16 @@ import Header from '../LandingPage/Header'
 import Footer from '../LandingPage/Footer'
 
 const Rentpage = () => {
-  const {search} = useLocation()
-  const queryParams = new URLSearchParams(search)
-  const type = queryParams.get('type');
-  const city = queryParams.get('city');
-  const dateIn = queryParams.get('dateIn');
-  const dateOut = queryParams.get('dateOut');
-  
+  const type = null;
+  const city = ''
+  const dateIn = ''
+  const dateOut = ''
+  const location = useLocation()
+  const state = location.state || {}
+  const endpoint = state.city ? 'findCars' : 'findByCategory'
+  //si viene por categoria y quita el filtro pedir que seleccione lugar y fechas
+  //si viene por el buscador y quita todos los filtros entonces muestra el rtdo original.
+  //En cualquier caso los filtros son aplicados sobre la busqueda original. En el ultimo caso simplemente verificar que haya una busqueda original
   const [selectedFilters, setSelectedFilters] = useState([])
   const orderOptions = [{id:0, name:'Price high to low'}, {id:1, name:'Price low to high'}, {id:2, name:'Top rated first'}]
   const [orderFilter, setOrderFilter] = useState(null)
@@ -33,7 +36,6 @@ const Rentpage = () => {
     console.log(typeFilter)
   },[orderFilter, makeFilter, typeFilter])
   
-console.log(type)
   return (
     <section>
     <Header linkScroll={false}/>
@@ -41,9 +43,7 @@ console.log(type)
       <div className='flex flex-col my-4 justify-center items-center gap-3'>
       <div className='flex lg:flex-row xl:flex-row flex-col gap-2'>
         <SelectorsPanel showLabel={false} preselected={[city, dateIn, dateOut]}/>
-        <div className='bg-color-blue rounded-2xl flex p-4 w-fit items-center hover:scale-95 hover:cursor-pointer hover:opacity-90 transition-all'>
-          <img src={searchIcon} className='h-6'/>
-        </div>
+        
       </div>
         <div className='flex flex-wrap gap-2 items-center'>
           <Filter selectedFilter={setOrderFilter} placeholder={'Order by'} options={orderOptions}/>
@@ -53,10 +53,10 @@ console.log(type)
         </div>
       </div>
       <div className='flex flex-wrap w-full h-full gap-4 justify-start z-0'>
+        {/* <BigCarCard finalize={false}/>
         <BigCarCard finalize={false}/>
         <BigCarCard finalize={false}/>
-        <BigCarCard finalize={false}/>
-        <BigCarCard finalize={false}/>
+        <BigCarCard finalize={false}/> */}
       </div>
     </div>
     <Footer/>

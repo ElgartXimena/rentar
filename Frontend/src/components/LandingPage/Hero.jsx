@@ -18,7 +18,7 @@ const Hero = () => {
           </span>
         </h1>
           <SelectorsPanel showLabel={true}/>
-          <Link to="/rent" className='blue-btn w-full mt-4'>Choose your car</Link>
+          {/* <Link to="/rent" className='blue-btn w-full mt-4'>Choose your car</Link> */}
         </div>
         <div className="flex-1 rounded-3xl overflow-hidden">
             <img src={herobg} className="w-full h-full object-cover" alt="Hero Image"/>

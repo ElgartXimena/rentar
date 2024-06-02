@@ -2,8 +2,8 @@ const endpoints = {
   ROOT: '/',
   CARS: {
     MAIN: '/cars',
-    CATEGORY: '/cars/?category=',
-    MAKE: '/cars/?make=',
+    CATEGORY: '/cars/category/',
+    MAKE: '/cars/make/',
     TOPRATED: '/cars/toprated'
   },
   CITIES: '/cities',

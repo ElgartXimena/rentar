@@ -12,13 +12,13 @@ const Selector = ({closeOther, label, sampleText, icon, type, setShowSelector, s
             className={`flex w-full justify-between flex-row rounded-[20px] bg-white 
             text-color-middlegray font-poppins items-center 
             ${dateValidation ? 'inner-border-2 inner-border-red-500' : ''}
-            mt-1  p-5 hover:cursor-text
+            mt-1  p-5 hover:cursor-pointer
             inner-border-[1px] hover:inner-border-color-black transition-all duration-300`}
             onClick={()=>{setShowSelector(!showSelector); closeOther()}}
         >
             <div className='flex-row w-full flex gap-2 items-center'>
                 <img src={icon}/>
-                <input readOnly={true} className='placeholder:font-medium  pr-auto border-none bg-white outline-none text-color-black font-medium w-full' placeholder={sampleText}/>
+                <input readOnly={true} className='hover:cursor-pointer placeholder:font-medium  pr-auto border-none bg-white outline-none text-color-black font-medium w-full' placeholder={sampleText}/>
             </div>
             <img src={downarrow} className='hover:scale-[1.05] hover:cursor-pointer'/>
         </div>

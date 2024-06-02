@@ -5,14 +5,17 @@ import SelectorsPanel from '../selector/SelectorsPanel'
 import CarCard from '../Cards/CarCard'
 import BigCarCard from '../Cards/BigCarCard'
 import Header from '../LandingPage/Header'
+import { useLocation } from 'react-router-dom'
 
 const FinalizeRental = () => {
-
+  const location = useLocation();
+  const { car } = location.state || {}
+  console.log(car)
   return (
     <>
-    <Header linkScroll={true}/>
+    <Header linkScroll={false}/>
     <div className='flex flex-row gap-3 w-full h-full p-10 mt-14'>
-      <BigCarCard finalize={true}/>
+      <BigCarCard finalize={true} carItem={car}/>
       <div className='flex-[0.4] flex-col justify-between p-5'>{/*dataa*/}
           <div className='flex flex-col gap-10 w-full'>
             <span className="bg-gradient-to-br from-color-violet from-40% to-color-blue 
@@ -24,7 +27,7 @@ const FinalizeRental = () => {
           <div className='mt-4 flex flex-col w-full p-2'>
             <div className='flex flex-row justify-between font-poppins text-sm text-color-stronggray'>
               <h1>Cost per day</h1>
-              <h1>$19</h1>
+              <h1>${car.price}</h1>
             </div>
             <div className='flex flex-row justify-between font-poppins text-sm text-color-stronggray'>
               <h1>Number of days</h1>

@@ -15,8 +15,8 @@ const router = Router()
 
 //CARS ENDPOINTS
 router.get('/cars', findCars);
-router.get('/cars/:category', findCarsByCategory);
 router.get('/cars/toprated', findTopRatedCars);
+router.get('/cars/:category', findCarsByCategory);
 router.get('/cars/:make', findCarsByMake);
 router.post('/cars', addCar);
 router.delete('/cars/:idcar', deleteCar);

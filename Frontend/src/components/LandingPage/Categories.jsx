@@ -1,7 +1,8 @@
 import React from 'react'
 import { sedan, suv, van, pickup, sport } from '../../assets'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 const Categories = () => {
+    
   return (
     <div id="Cars" className='flex flex-col my-3 items-center mx-10 ' >
         <div className='flex flex-col items-center'>
@@ -22,18 +23,22 @@ const Categories = () => {
 export default Categories
 
 function CategoryCard({catName, catPhoto, catPrice}) {
+    const navigate = useNavigate()
+    const handleNavigate = (cat)=>{
+        navigate('/rent', { state: { category: cat } });
+    }
     return (
     <div className='category-card group items-end bg-cover bg-center overflow-hidden hover:drop-shadow-2xl hover:scale-[1.05]' 
     style={{backgroundImage: `url(${catPhoto})`}}>
         <div className='flex flex-col justify-between p-4 w-full items-start group-hover:pt-60 group-hover:bg-color-black/20 group-hover:backdrop-blur-sm transition-all ease-in-out duration-300'>
             <h1 className='font-poppins font-bold text-3xl text-white'>{catName}</h1>
             <h1 className='font-poppins font-light text-lg whitespace-nowrap text-white'>Starts from {catPrice}</h1>
-            <Link 
+            <button 
             className='blue-btn mt-4 w-full group-hover:flex group-hover:scale-100 scale-0 hidden transition-all duration-300 bg-white/20 hover:bg-white hover:text-color-black border-white text-white'
-            to={`/rent?type=${catName}`}
+            onClick={()=>{handleNavigate(catName)}}
             >
                 View all
-            </Link>
+            </button>
         </div>
     </div>);
 }
