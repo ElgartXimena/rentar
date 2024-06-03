@@ -49,15 +49,12 @@ const Rentpage = () => {
   useEffect(()=>{
     if (data){
       setCars(data)
+      console.log('rpo')
     }
   }, [data])
 
   useEffect(()=>{
   }, [cars])
-
-  //si viene por categoria y quita el filtro pedir que seleccione lugar y fechas
-  //si viene por el buscador y quita todos los filtros entonces muestra el rtdo original.
-  //En cualquier caso los filtros son aplicados sobre la busqueda original. En el ultimo caso simplemente verificar que haya una busqueda original
   
   const orderOptions = [
     {id:0, filter: new HighToLow()},
@@ -74,7 +71,6 @@ const Rentpage = () => {
     {id:4, filter: new FilterCategory('Van')}]
   const [typeFilter, setTypeFilter] = useState(type ? type : null)
   
-  //const makeOptions = [{id:0, name:'Chevrolet'}, {id:1, name:'Toyota'}, {id:2, name:'Renault'},{id:3, name:'Volkswagen'}, {id:4, name:'Audi'}]
   const makeOptions = [
     {id:0, filter: new FilterMake('Chevrolet')}, 
     {id:1, filter: new FilterMake('Toyota')}, 
@@ -83,6 +79,7 @@ const Rentpage = () => {
     {id:4, filter: new FilterMake('Audi')},
     {id:5, filter: new FilterMake('Fiat')},
     {id:6, filter: new FilterMake('Ford')},
+    {id:7, filter: new FilterMake('Jeep')},
   ]
   const [makeFilter, setMakeFilter] = useState(null)
   
@@ -92,21 +89,28 @@ const Rentpage = () => {
 
     const filters = [orderFilter?.filter, makeFilter?.filter, typeFilter?.filter]
     let result = data
-    filters.forEach(filter => {
-        if (filter != null){
-          result = filter.applyFilter(result)
-        }
-    });
-    setCars(result)
+    console.log(typeFilter, city)
+    if ((typeFilter == null) && (city == null)) { 
+      //significa que vino desde las categorias y quito el filtro de la categoria. 
+        setCars(null)
+    } else {
+      filters.forEach(filter => {
+          if (filter != null){
+            result = filter.applyFilter(result)
+          }
+      });
+      setCars(result)
+    }
+
   },[apply])
   
   return (
-    <section>
+    <section className='flex flex-col justify-between h-full'>
     <Header linkScroll={false}/>
     <div id='rentpage' className='h-full gap-4 mt-14 flex flex-col mx-8'>
       <div className='flex flex-col my-4 justify-center items-center gap-3'>
       <div className='flex lg:flex-row xl:flex-row flex-col gap-2'>
-        <SelectorsPanel showLabel={false} preselected={[city, dateIn, dateOut]}/>
+        <SelectorsPanel showLabel={false} preselected={{city: city, dateIn: dateIn, dateOut: dateOut} }/>
         
       </div>
         <div className='flex flex-wrap gap-2 items-center'>
@@ -122,7 +126,7 @@ const Rentpage = () => {
       </div>
       {
         loading ? (
-          <OrbitProgress variant="track-disc" color="#32cd32" size="medium" text="" textColor="" />
+          <OrbitProgress variant="track-disc" color="#emptyFilters" size="small" text="" textColor="" />
         ) : cars ? (
           <div className='flex flex-wrap w-full h-full gap-4 justify-start z-0'>
               {cars.map((car, index)=>(

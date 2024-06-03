@@ -10,12 +10,13 @@ const SelectorsPanel = ({showLabel, preselected}) => {
   const [showSelectorRet, setshowSelectorRet] = useState(false)
   const [showSelectorCity, setShowSelectorCity] = useState(false)
   const [today, setToday] = useState(dayjs())
-  console.log(preselected)
-  const [pickedCity, setPickedCity] = useState(preselected? preselected[0].name + ', ' + preselected[0].address : "Selecciona una ciudad...")
+  
+  const hasCity = preselected ? (preselected.city ? true : false) : false
+  const [pickedCity, setPickedCity] = useState(hasCity ? preselected.city.name + ', ' + preselected.city.address : "Selecciona una ciudad...")
   const [fullCity, setFullCity] = useState("")
 
-  const [pickupDay, setPickupDay] = useState(preselected ? dayjs(preselected[1]) : today)
-  const [returnDay, setReturnDay] = useState(preselected ? dayjs(preselected[2]) : today.add(7, 'day'))
+  const [pickupDay, setPickupDay] = useState(preselected ? dayjs(preselected.dateIn) : today)
+  const [returnDay, setReturnDay] = useState(preselected ? dayjs(preselected.dateOut) : today.add(7, 'day'))
 //  console.log(preselected)
   const [invalidDates, setInvalidDates] = useState(false)
   useEffect(()=>{
