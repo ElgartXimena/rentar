@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const BigCarCard = ({finalize, carItem}) => {
 //const carItem = {carImg: 'https://i.postimg.cc/ZngDYKnP/fiat-cronos.jpg', make:'Fiat', model:'Cronos', year:'2024', seats:'4', luggage:'2', gear:'Manual', rating:4.3, price:'$19' }
-console.log(carItem)
+//console.log(carItem)
 const navigate = useNavigate()
 const handleRentNow = () => {
     navigate('/finalize', { state: { car: carItem } });

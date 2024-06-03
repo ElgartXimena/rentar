@@ -24,7 +24,7 @@ const m = {
   d: 'DELETE'
 };
 const endpointMethods = {
-  findCars: m.g,
+  findCars: m.p,
   findByCategory: m.g,
   findTopRated: m.g,
   findByMake: m.g,

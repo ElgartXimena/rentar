@@ -14,7 +14,7 @@ const { addUser, deleteUser, updateUser } = userCtrl;
 const router = Router()
 
 //CARS ENDPOINTS
-router.get('/cars', findCars);
+router.post('/cars', findCars);
 router.get('/cars/category/:category', findCarsByCategory);
 router.get('/cars/toprated', findTopRatedCars);
 router.get('/cars/make/:make', findCarsByMake);

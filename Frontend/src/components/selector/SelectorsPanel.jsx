@@ -10,12 +10,12 @@ const SelectorsPanel = ({showLabel, preselected}) => {
   const [showSelectorRet, setshowSelectorRet] = useState(false)
   const [showSelectorCity, setShowSelectorCity] = useState(false)
   const [today, setToday] = useState(dayjs())
-
-  const [pickedCity, setPickedCity] = useState("Selecciona una ciudad...")
+  console.log(preselected)
+  const [pickedCity, setPickedCity] = useState(preselected? preselected[0].name + ', ' + preselected[0].address : "Selecciona una ciudad...")
   const [fullCity, setFullCity] = useState("")
 
-  const [pickupDay, setPickupDay] = useState(today)
-  const [returnDay, setReturnDay] = useState(today.add(7, 'day'))
+  const [pickupDay, setPickupDay] = useState(preselected ? dayjs(preselected[1]) : today)
+  const [returnDay, setReturnDay] = useState(preselected ? dayjs(preselected[2]) : today.add(7, 'day'))
 //  console.log(preselected)
   const [invalidDates, setInvalidDates] = useState(false)
   useEffect(()=>{
@@ -36,7 +36,7 @@ const SelectorsPanel = ({showLabel, preselected}) => {
   }
 
   return (
-    <div className='flex flex-wrap gap-2 w-full'>
+    <div className='flex flex-wrap gap-2 w-full z-10'>
         <Selector type={1} label={'Departure city'} showLabel={showLabel} sampleText={pickedCity} icon={location} setShowSelector={setShowSelectorCity} showSelector={showSelectorCity} setCity={setCity} closeOther={()=>{}}/>
         <Selector type={0} label={'Pickup date'} showLabel={showLabel} sampleText={pickupDay.format('MMMM D, YYYY')} icon={checkin} setShowSelector={setshowSelectorPick} showSelector={showSelectorPick} setDay={setPickupDay} closeOther={()=>{setshowSelectorRet(false)}}/>
         <div className='flex flex-row items-end flex-grow h-min gap-2'>

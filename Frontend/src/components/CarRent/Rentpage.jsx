@@ -10,6 +10,11 @@ import Footer from '../LandingPage/Footer'
 import dayjs from 'dayjs'
 import useFetch from '../../Hooks/useFetch'
 import {OrbitProgress} from 'react-loading-indicators'
+import FilterMake from '../../Utils/Filters/FilterMake'
+import HighToLow from '../../Utils/Filters/HighToLow'
+import FilterCategory from '../../Utils/Filters/FilterCategory'
+import LowToHigh from '../../Utils/Filters/LowToHigh'
+import TopRatedFirst from '../../Utils/Filters/TopRatedFirst'
 const Rentpage = () => {
   const location = useLocation()
   const state = location.state || {}
@@ -24,17 +29,15 @@ const Rentpage = () => {
 
   useEffect(()=>{
     const endpoint = city ? 'findCars' : 'findByCategory'
-    console.log(type, city, dateIn, dateOut, endpoint)
 
     async function fetch(){
       if (endpoint === 'findCars'){
         console.log(dateIn)
         const body = {
           city: city._id,
-          startDate: '2024-06-01',
-          endDate: '2024-06-10'
+          startDate: dateIn,
+          endDate: dateOut
         }
-        console.log(body)
         await fetchdata(body, endpoint, null)
       } else {
         await fetchdata(null, endpoint, type)
@@ -49,27 +52,53 @@ const Rentpage = () => {
     }
   }, [data])
 
-  useEffect(()=>{}, [cars])
+  useEffect(()=>{
+  }, [cars])
 
   //si viene por categoria y quita el filtro pedir que seleccione lugar y fechas
   //si viene por el buscador y quita todos los filtros entonces muestra el rtdo original.
   //En cualquier caso los filtros son aplicados sobre la busqueda original. En el ultimo caso simplemente verificar que haya una busqueda original
-  const [selectedFilters, setSelectedFilters] = useState([])
-  const orderOptions = [{id:0, name:'Price high to low'}, {id:1, name:'Price low to high'}, {id:2, name:'Top rated first'}]
+  
+  const orderOptions = [
+    {id:0, filter: new HighToLow()},
+    {id:1, filter: new LowToHigh()},
+    {id:2, filter: new TopRatedFirst()},
+  ]
   const [orderFilter, setOrderFilter] = useState(null)
   
-  const vehicleType = [{id:0, name:'Sedán'}, {id:1, name:'SUV'}, {id:2, name:'Pickup'}, {id:3, name:'Sport'}, {id:4, name:'Van'}]
+  const vehicleType = [
+    {id:0, filter: new FilterCategory('Sedan')}, 
+    {id:1, filter: new FilterCategory('SUV')}, 
+    {id:2, filter: new FilterCategory('Pickup')}, 
+    {id:3, filter: new FilterCategory('Sport')}, 
+    {id:4, filter: new FilterCategory('Van')}]
   const [typeFilter, setTypeFilter] = useState(type ? type : null)
   
-  const makeOptions = [{id:0, name:'Chevrolet'}, {id:1, name:'Toyota'}, {id:2, name:'Renault'},{id:3, name:'Volkswagen'}, {id:4, name:'Audi'}]
+  //const makeOptions = [{id:0, name:'Chevrolet'}, {id:1, name:'Toyota'}, {id:2, name:'Renault'},{id:3, name:'Volkswagen'}, {id:4, name:'Audi'}]
+  const makeOptions = [
+    {id:0, filter: new FilterMake('Chevrolet')}, 
+    {id:1, filter: new FilterMake('Toyota')}, 
+    {id:2, filter: new FilterMake('Renault')}, 
+    {id:3, filter: new FilterMake('Volkswagen')}, 
+    {id:4, filter: new FilterMake('Audi')},
+    {id:5, filter: new FilterMake('Fiat')},
+    {id:6, filter: new FilterMake('Ford')},
+  ]
   const [makeFilter, setMakeFilter] = useState(null)
-
+  
+  const [apply, setApply] = useState(false)
 
   useEffect(()=>{
-    console.log(orderFilter)
-    console.log(makeFilter)
-    console.log(typeFilter)
-  },[orderFilter, makeFilter, typeFilter])
+
+    const filters = [orderFilter?.filter, makeFilter?.filter, typeFilter?.filter]
+    let result = data
+    filters.forEach(filter => {
+        if (filter != null){
+          result = filter.applyFilter(result)
+        }
+    });
+    setCars(result)
+  },[apply])
   
   return (
     <section>
@@ -84,7 +113,11 @@ const Rentpage = () => {
           <Filter selectedFilter={setOrderFilter} placeholder={'Order by'} options={orderOptions}/>
           <Filter selectedFilter={setTypeFilter} placeholder={'Vehicle type'} options={vehicleType} hasFilter={type ? true : false} prefilter={type}/>
           <Filter selectedFilter={setMakeFilter} placeholder={'Make'} options={makeOptions}/>
-          <button className='py-3 px-6 bg-color-blue hover:scale-95 hover:opacity-95 transition-all font-poppins font-medium text-white rounded-3xl'>Apply</button>
+          <button 
+          onClick={()=>{setApply(!apply)}}
+          className='py-3 px-6 bg-color-blue hover:scale-95 hover:opacity-95 transition-all font-poppins font-medium text-white rounded-3xl'>
+            Apply
+          </button>
         </div>
       </div>
       {

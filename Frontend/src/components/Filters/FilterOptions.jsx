@@ -12,7 +12,7 @@ const FilterOptions = ({setFilterOpen, addFilter, options}) => {
             <li 
                 key={item.id} 
                 className='hover:bg-color-lightgray p-6 hover:text-color-black hover:cursor-pointer' 
-                onClick={()=>{addFilter(item); setFilterOpen(false)}}>{item.name}
+                onClick={()=>{addFilter(item); setFilterOpen(false)}}>{item.filter.getParam()}
             </li>
             ))}
           </ul>

@@ -8,7 +8,7 @@ const Filter = ({selectedFilter, placeholder, options, hasFilter, prefilter}) =>
     const [removeFilter, setRemoveFilter] = useState(false)
 
     const addFilter = (filter) => {
-        setSelectedPlaceholder(filter.name)
+        setSelectedPlaceholder(filter.filter.getParam())
         selectedFilter(filter)
         setRemoveFilter(true)
     }
