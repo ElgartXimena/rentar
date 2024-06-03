@@ -12,7 +12,7 @@ const handleRentNow = () => {
 return (
     <div 
         className={`
-        ${finalize ? 'flex-1 ' : 'flex flex-grow min-w-96 max-w-[800px] max-h-[700px] min-h-[400px]'}
+        ${finalize ? 'flex-1 ' : 'flex flex-grow min-w-96 max-w-[800px] max-h-[800px] min-h-[500px]'}
         rounded-[32px]
         relative items-start overflow-hidden bg-cover 
         bg-center hover:drop-shadow-2xl hover:scale-[1.005] transition-all duration-300 
@@ -25,15 +25,18 @@ return (
         flex flex-col justify-between h-full w-full p-6
         '>
             <div className='flex flex-col gap-2'>
-                <div className='flex flex-row items-center gap-4'>
-                    <h1 className='font-poppins text-2xl font-normal text-color-lightgray'>
-                        {carItem.make} 
-                        <span className='font-semibold'> {carItem.model}</span>
-                    </h1>
-                    <div className='flex flex-row items-baseline gap-1'>
-                        <img src={whiteStar} className='h-4' />
-                        <h1 className='font-poppins font-semibold text-color-lightgray'>{carItem.rating}</h1>
+                <div className='flex flex-row items-center justify-between'>
+                    <div className='flex flex-row items-center gap-4'>    
+                        <h1 className='font-poppins text-2xl font-normal text-color-lightgray'>
+                            {carItem.make} 
+                            <span className='font-semibold'> {carItem.model}</span>
+                        </h1>
+                        <div className='flex flex-row items-baseline gap-1'>
+                            <img src={whiteStar} className='h-4' />
+                            <h1 className='font-poppins font-semibold text-color-lightgray'>{carItem.rating}</h1>
+                        </div>
                     </div>
+                    <h1 className='font-poppins font-medium text-white'>{carItem.year}</h1>
                 </div>
                 <div className='flex flex-row gap-2 items-center'>
                     <div className='backdrop-blur-lg flex gap-1 w-fit px-4 py-1 bg-color-black/20 hover:bg-color-black/40 transition-all duration-300 rounded-2xl items-center'>
@@ -46,7 +49,7 @@ return (
                     </div>
                     <div className='backdrop-blur-lg flex gap-1 w-fit px-4 py-1 bg-color-black/20 hover:bg-color-black/40 transition-all duration-300 rounded-2xl items-center'>
                         <img src={whiteGear} className='h-4' />
-                        <h1 className='font-poppins text-color-lightgray'>{carItem.gear}</h1>
+                        <h1 className='font-poppins text-color-lightgray'>Manual</h1>
                     </div>
                 </div>
             </div>
@@ -57,7 +60,7 @@ return (
                 </div>
                 {finalize ? null : 
                     <button onClick={handleRentNow}
-                    className='blue-btn bg-white/10 backdrop-blur-lg hover:bg-white hover:text-color-black border-white text-white'>>
+                    className='blue-btn bg-white/10 backdrop-blur-lg hover:bg-white hover:text-color-black border-white text-white'>
                         Rent now
                     </button>
                 }

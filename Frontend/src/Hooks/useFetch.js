@@ -14,6 +14,8 @@ const useFetch = () => {
             finalEndpoint = apiPaths[endpoint].concat(queryParams)
         }
         console.log(finalEndpoint)
+        console.log(endpointMethods[endpoint])
+
         //console.log(finalEndpoint)
         //console.log(body ? ( pdfs ? body : JSON.stringify(body)):null)
         try {

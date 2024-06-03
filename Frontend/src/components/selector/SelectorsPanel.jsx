@@ -25,7 +25,8 @@ const SelectorsPanel = ({showLabel, preselected}) => {
   const navigate = useNavigate()
 
   const handleNavigate = () => {
-    navigate('/rent', { state: { city: fullCity, dateIn: pickupDay, dateOut: returnDay } });
+    //must provide a city
+    navigate('/rent', { state: { city: fullCity, dateIn: pickupDay.format('YYYY-MM-DD'), dateOut: returnDay.format('YYYY-MM-DD') } });
   }
 
   const setCity = (city) => {

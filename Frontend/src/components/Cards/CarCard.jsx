@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { cronos, emptystar, filledstar, gear, halfstar, luggage, seat } from '../../assets';
 import { getStarArray } from '../../Utils/starsCalculator';
 import { Link, useNavigate } from 'react-router-dom';
@@ -11,8 +11,13 @@ const colors = {
 }
 const CarCard = ({ carItem }) => {
     const navigate = useNavigate()
+    const [color, setColor] = useState("")
+    useEffect(()=>{
+        setColor(colors[carItem.category])
+    }, [])
 
-    const color = `${colors[carItem.category]}`
+    
+    //const color = `${colors[carItem.category]}`
     const handleRentNow = () => {
         navigate('/finalize', { state: { car: carItem } });
     }
