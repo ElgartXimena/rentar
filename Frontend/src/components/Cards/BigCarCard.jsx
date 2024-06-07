@@ -49,7 +49,7 @@ return (
                     </div>
                     <div className='backdrop-blur-lg flex gap-1 w-fit px-4 py-1 bg-color-black/20 hover:bg-color-black/40 transition-all duration-300 rounded-2xl items-center'>
                         <img src={whiteGear} className='h-4' />
-                        <h1 className='font-poppins text-color-lightgray'>Manual</h1>
+                        <h1 className='font-poppins text-color-lightgray'>{carItem.transmission}</h1>
                     </div>
                 </div>
             </div>

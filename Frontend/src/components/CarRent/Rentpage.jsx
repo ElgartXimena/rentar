@@ -49,7 +49,6 @@ const Rentpage = () => {
   useEffect(()=>{
     if (data){
       setCars(data)
-      console.log('rpo')
     }
   }, [data])
 

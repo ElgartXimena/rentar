@@ -27,7 +27,13 @@ const SelectorsPanel = ({showLabel, preselected}) => {
 
   const handleNavigate = () => {
     //must provide a city
-    navigate('/rent', { state: { city: fullCity, dateIn: pickupDay.format('YYYY-MM-DD'), dateOut: returnDay.format('YYYY-MM-DD') } });
+    if (window.location.href === '/rent'){
+      console.log(window.location.href)
+      window.location.reload()
+    } else {
+
+      navigate('/rent', { state: { city: fullCity, dateIn: pickupDay.format('YYYY-MM-DD'), dateOut: returnDay.format('YYYY-MM-DD') } });
+    }
   }
 
   const setCity = (city) => {

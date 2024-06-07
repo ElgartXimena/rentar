@@ -2,19 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { cronos, emptystar, filledstar, gear, halfstar, luggage, seat } from '../../assets';
 import { getStarArray } from '../../Utils/starsCalculator';
 import { Link, useNavigate } from 'react-router-dom';
-const colors = {
-    Sport: '#a06cd5',
-    SUV: '#f77f00',
-    Sedan: '#c63939',
-    Pickup: '#293241',
-    Van: '#a9c649'
-}
+
 const CarCard = ({ carItem }) => {
     const navigate = useNavigate()
-    const [color, setColor] = useState("")
-    useEffect(()=>{
-        setColor(colors[carItem.category])
-    }, [])
 
     
     //const color = `${colors[carItem.category]}`
@@ -32,7 +22,7 @@ const CarCard = ({ carItem }) => {
                     <h1 className='font-poppins font-light text-lg text-color-blue whitespace-nowrap overflow-hidden text-ellipsis'>{carItem.make} 
                         <br/>
                     </h1>
-                    <span className={`font-poppins font-medium text-[${color}] text-sm px-2 py-[2px] rounded-lg h-fit border-[2px] border-[${color}] bg-[${color}]/10`}> {carItem.category}</span>
+                    <span className={`font-poppins font-medium text-color-stronggray text-sm px-2 py-[2px] rounded-lg h-fit border-[2px] border-color-stronggray bg-color-middlegray/10`}> {carItem.category}</span>
                 </div>
                 <span className='font-poppins text-color-blue font-semibold text-3xl  mb-7'>{carItem.model}</span>
                 <span className='font-poppins font-medium text-color-middlegray text-sm'> {carItem.year}</span>
@@ -43,7 +33,7 @@ const CarCard = ({ carItem }) => {
                         <img src={luggage} alt="luggage"/>
                         <h1 className='mr-4 ml-1'>{carItem.luggage}</h1>
                         <img src={gear} alt="gear"/>
-                        <h1 className='mr-4 ml-1'>{carItem.gear}</h1>
+                        <h1 className='mr-4 ml-1'>{carItem.transmission}</h1>
                     </div>
                     <div className='flex flex-row items-center'>
                         {
