@@ -9,15 +9,11 @@ const findCars = async (req, res) => {
       return res.status(400).json({ message: 'City, startDate, and endDate are required' });
     }
 
-    // Convertir fechas a Date objects
-    const start = new Date(startDate);
-    const end = new Date(endDate);
-
     // Encontrar reservas que se superpongan con las fechas proporcionadas en la ciudad especificada
     const bookings = await BookingModel.find({
       city: city,
       $or: [
-        { dateIn: { $lte: end }, dateOut: { $gte: start } },
+        { dateIn: { $lte: endDate }, dateOut: { $gte: startDate } },
       ],
     });
 
