@@ -19,7 +19,7 @@ const CityPicker = ({setPickedCity, setShowSelector}) => {
     }, [data])
 
     useEffect(()=>{
-      console.log(cities)
+      
     }, [cities])
     return (
     <div 

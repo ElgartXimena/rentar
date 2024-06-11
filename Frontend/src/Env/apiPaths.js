@@ -15,6 +15,7 @@ const apiPaths = {
   
   loginUser: `${environment.hostBackend}${endpoints.USER.MAIN}`,
 
+  getReviews: `${environment.hostBackend}${endpoints.REVIEWS.MAIN}`
 };
 
 const m = {
@@ -33,7 +34,7 @@ const endpointMethods = {
   deleteBooking: m.d,
   getBookings: m.g,
   loginUser: m.p,
-
+  getReviews: m.g,
 };
 
 

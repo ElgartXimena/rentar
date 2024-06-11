@@ -22,12 +22,14 @@ const Selector = ({closeOther, label, sampleText, icon, type, setShowSelector, s
             </div>
             <img src={downarrow} className='hover:scale-[1.05] hover:cursor-pointer'/>
         </div>
-        <div className='absolute top-32 w-[300px]'>       
-        {
-            showSelector ? (
-                type === 0 ? <DatePicker setPickDay={setDay} setShowSelector={setShowSelector}/> : <CityPicker setPickedCity={setCity} setShowSelector={setShowSelector}/>
-            ) : null
-        }
+        <div className='flex'>
+            <div className='absolute pt-2'>       
+            {
+                showSelector ? (
+                    type === 0 ? <DatePicker setPickDay={setDay} setShowSelector={setShowSelector}/> : <CityPicker setPickedCity={setCity} setShowSelector={setShowSelector}/>
+                ) : null
+            }
+            </div>
         </div>
     </div>
   )

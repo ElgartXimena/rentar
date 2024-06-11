@@ -19,15 +19,18 @@ const Filter = ({selectedFilter, placeholder, options, hasFilter, prefilter}) =>
         setRemoveFilter(false)
     }
 
-    useEffect(()=>{},[selectedPlaceholder])
+    useEffect(()=>{
+
+    },[selectedPlaceholder])
 
     useEffect(()=>{
         if (hasFilter){
-            
             setRemoveFilter(true)
-            
+        } else {
+            setRemoveFilter(false)
+            setSelectedPlaceholder(placeholder)
         }
-    }, [])
+    }, [hasFilter])
     return (
     <div>
         <div className='flex flex-row items-center'>    

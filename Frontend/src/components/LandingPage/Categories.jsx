@@ -25,7 +25,7 @@ export default Categories
 function CategoryCard({catName, catPhoto, catPrice}) {
     const navigate = useNavigate()
     const handleNavigate = (cat)=>{
-        navigate('/rent', { state: { category: cat } });
+        navigate(`/rent/${cat}`, { state: { category: cat } });
     }
     return (
     <div className='category-card group items-end bg-cover bg-center overflow-hidden hover:drop-shadow-2xl hover:scale-[1.05]' 

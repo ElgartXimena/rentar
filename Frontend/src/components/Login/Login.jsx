@@ -23,7 +23,7 @@ const Login = () => {
 
   useEffect(()=>{
     if (data){
-        console.log(data.userId)
+        
         Cookies.set('token' , data.userId)
         navigate('/')
     }

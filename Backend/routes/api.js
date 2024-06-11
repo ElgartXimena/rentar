@@ -18,7 +18,7 @@ router.post('/cars', findCars);
 router.get('/cars/category/:category', findCarsByCategory);
 router.get('/cars/toprated', findTopRatedCars);
 router.get('/cars/make/:make', findCarsByMake);
-router.post('/cars', addCars);
+router.post('/cars/add', addCars);
 router.delete('/cars/:id', deleteCar);
 router.put('/cars', updateCar);
 

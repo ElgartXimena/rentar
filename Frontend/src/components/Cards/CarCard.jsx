@@ -12,7 +12,7 @@ const CarCard = ({ carItem }) => {
         navigate('/finalize', { state: { car: carItem } });
     }
     return (
-        <div className='flex flex-col rounded-[28px] drop-shadow-lg hover:drop-shadow-2xl bg-white transition-all ease-in-out duration-350 my-12 w-fit max-w-[300px]'>
+        <div className='flex flex-col rounded-[28px] drop-shadow-md hover:drop-shadow-2xl bg-white transition-all ease-in-out min-w-72 duration-350 my-12'>
             <div
                 className="h-[180px] bg-cover bg-center flex items-center justify-center rounded-t-[28px]"
                 style={{ backgroundImage: `url(${carItem.url})` }}
@@ -24,8 +24,8 @@ const CarCard = ({ carItem }) => {
                     </h1>
                     <span className={`font-poppins font-medium text-color-stronggray text-sm px-2 py-[2px] rounded-lg h-fit border-[2px] border-color-stronggray bg-color-middlegray/10`}> {carItem.category}</span>
                 </div>
-                <span className='font-poppins text-color-blue font-semibold text-3xl  mb-7'>{carItem.model}</span>
-                <span className='font-poppins font-medium text-color-middlegray text-sm'> {carItem.year}</span>
+                <span className='font-poppins text-color-blue font-semibold text-3xl'>{carItem.model}</span>
+                <span className='font-poppins font-medium text-color-middlegray text-sm mb-5'> {carItem.year}</span>
                 <div className='flex flex-col text-color-stronggray font-poppins font-medium text-lg mb-4'>
                     <div className='flex flex-row items-center mb-4'>
                         <img src={seat} alt="seat"/>
@@ -43,17 +43,14 @@ const CarCard = ({ carItem }) => {
                                         key={index}
                                         src={srcImg}
                                         alt={`star-${index}`}
-                                        className='mx-[1px] hover:scale-[1.05]'
+                                        className='mx-[1px] hover:scale-[1.05] h-5'
                                     />
                                 );
                             })
                         }
-                        <h1 className='ml-2 text-xl'>{carItem.rating}</h1>
+                        <h1 className='ml-2'>{carItem.rating}</h1>
                     </div>
                 </div>
-                <button onClick={handleRentNow} className='blue-btn'>
-                    Rent now for ${carItem.price}/day
-                </button>
             </div>
         </div>
     );

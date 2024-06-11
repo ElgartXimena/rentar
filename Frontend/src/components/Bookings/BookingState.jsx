@@ -9,7 +9,7 @@ const BookingState = ({datein, dateout}) => {
     const dateInF = dayjs(datein)
     const dateOutF = dayjs(dateout)
     const today = dayjs()
-    console.log(today, dateInF, dateOutF)
+    
     if (today.isBefore(dateInF)) {
       setColor('blue')
       setText('Ready')

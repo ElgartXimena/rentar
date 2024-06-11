@@ -13,11 +13,7 @@ const useFetch = () => {
         if (queryParams){
             finalEndpoint = apiPaths[endpoint].concat(queryParams)
         }
-        console.log(finalEndpoint)
-        console.log(endpointMethods[endpoint])
-
-        //console.log(finalEndpoint)
-        //console.log(body ? ( pdfs ? body : JSON.stringify(body)):null)
+    
         try {
         const response = await fetch(finalEndpoint, {
             method: endpointMethods[endpoint],
@@ -28,11 +24,11 @@ const useFetch = () => {
         });
 
         if (response.ok) {
-            //const data = ;
+            
             setData(await response.json());
-            //console.log(data)
+            
         } else {
-            console.log(response)
+            
             setError(response);
         }
         } catch (error) {

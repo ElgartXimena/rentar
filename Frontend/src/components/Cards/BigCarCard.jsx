@@ -2,12 +2,14 @@ import React from 'react'
 import { filledstar, whiteGear, whiteLuggage, whiteSeat, whiteStar } from '../../assets'
 import { Link, useNavigate } from 'react-router-dom'
 
-const BigCarCard = ({finalize, carItem}) => {
-//const carItem = {carImg: 'https://i.postimg.cc/ZngDYKnP/fiat-cronos.jpg', make:'Fiat', model:'Cronos', year:'2024', seats:'4', luggage:'2', gear:'Manual', rating:4.3, price:'$19' }
-//console.log(carItem)
+const BigCarCard = ({finalize, carItem, rentData}) => {
+
 const navigate = useNavigate()
+
+const showButton = !finalize && (rentData.city == null ? false : true)
+console.log(showButton, finalize)
 const handleRentNow = () => {
-    navigate('/finalize', { state: { car: carItem } });
+    navigate('/finalize', { state: { car: carItem, rentData: rentData } });
 }
 return (
     <div 
@@ -58,11 +60,11 @@ return (
                     <h1 className='font-poppins font-bold text-3xl text-color-lightgray'>${carItem.price}</h1>
                     <h1 className='font-poppins font-light text-sm text-color-lightgray'>USD/per day</h1>
                 </div>
-                {finalize ? null : 
+                {showButton ?  
                     <button onClick={handleRentNow}
                     className='blue-btn bg-white/10 backdrop-blur-lg hover:bg-white hover:text-color-black border-white text-white'>
                         Rent now
-                    </button>
+                    </button> : null
                 }
             </div>
         </div>

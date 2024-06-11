@@ -21,6 +21,7 @@ import whiteStar from './Icons/whiteStar.svg'
 import user from './Icons/user.svg'
 import car from './Icons/car.svg'
 import exit from './Icons/exit.svg'
+import icono from './Icons/hatchback.png'
 
 import chevrolet from './Images/chevrolet.svg'
 import fiat from './Images/fiat.svg'
@@ -74,5 +75,6 @@ export {
     whiteStar,
     user,
     car,
-    exit
+    exit,
+    icono
 };

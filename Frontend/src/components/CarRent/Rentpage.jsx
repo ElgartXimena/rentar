@@ -17,22 +17,23 @@ import LowToHigh from '../../Utils/Filters/LowToHigh'
 import TopRatedFirst from '../../Utils/Filters/TopRatedFirst'
 const Rentpage = () => {
   const location = useLocation()
-  const state = location.state || {}
+  const state = location.state
   
-  const type = state.category;
+  const type = state.category
   const city = state.city
   const dateIn = state.dateIn
-  const dateOut = state.dateOut
+  const dateOut =state.dateOut
+
+  
 
   const [cars, setCars] = useState([])
   const {data, loading, error, fetchdata} = useFetch()
 
   useEffect(()=>{
     const endpoint = city ? 'findCars' : 'findByCategory'
-
     async function fetch(){
       if (endpoint === 'findCars'){
-        console.log(dateIn)
+        
         const body = {
           city: city._id,
           startDate: dateIn,
@@ -44,7 +45,7 @@ const Rentpage = () => {
       }
     }
     fetch()
-  }, [])
+  }, [window.location.pathname])
 
   useEffect(()=>{
     if (data){
@@ -53,7 +54,7 @@ const Rentpage = () => {
   }, [data])
 
   useEffect(()=>{
-  }, [cars])
+  }, [cars, type])
   
   const orderOptions = [
     {id:0, filter: new HighToLow()},
@@ -88,7 +89,6 @@ const Rentpage = () => {
 
     const filters = [orderFilter?.filter, makeFilter?.filter, typeFilter?.filter]
     let result = data
-    console.log(typeFilter, city)
     if ((typeFilter == null) && (city == null)) { 
       //significa que vino desde las categorias y quito el filtro de la categoria. 
         setCars(null)
@@ -101,7 +101,7 @@ const Rentpage = () => {
       setCars(result)
     }
 
-  },[apply])
+  },[apply, data])
   
   return (
     <section className='flex flex-col justify-between h-full'>
@@ -129,7 +129,7 @@ const Rentpage = () => {
         ) : cars ? (
           <div className='flex flex-wrap w-full h-full gap-4 justify-start z-0'>
               {cars.map((car, index)=>(
-                  <BigCarCard finalize={false} carItem={car}/>
+                  <BigCarCard finalize={false} carItem={car} rentData={{city: city, dateIn: dateIn, dateOut: dateOut} }/>
               ))}
           </div>
         ) : null
