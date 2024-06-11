@@ -3,6 +3,7 @@ import { logo, navigation } from '../../constants'
 import { Link } from 'react-scroll'
 import { Link as LinkRouter} from 'react-router-dom'
 import { car, downarrow, exit, user } from '../../assets'
+import Cookies from 'js-cookie'
 const Header = ({linkScroll}) => {
     
     const [menuOpen, setMenuOpen] = useState(false)
@@ -38,20 +39,20 @@ const Header = ({linkScroll}) => {
                 
             </ul>
             <div className='flex flex-col items-center'>
-                <div onClick={()=>{setMenuOpen(!menuOpen)}} className='hover:inner-border-2 hover:cursor-pointer inner-border-0 inner-border-color-blue flex flex-row items-center gap-2 py-2 px-4 bg-color-lightgray/20 rounded-3xl group transition-all'>
+                <div onClick={()=>{setMenuOpen(!menuOpen)}} className='hover:inner-border-2 hover:cursor-pointer inner-border-0 inner-border-color-blue flex flex-row items-center gap-2 p-2 bg-color-lightgray/20 rounded-3xl group transition-all'>
                     <img src={user} className='h-6'/>
-                    <h1 className='text-color-blue'>Hi, Leonel!</h1>
+                    {/* <h1 className='text-color-blue'>Hi, Leonel!</h1> */}
                 </div>
                 {
                     menuOpen ? (
-                        <div className='flex flex-col absolute top-16 items-center w-fit rounded-xl overflow-clip drop-shadow-2xl'>
+                        <div className='flex flex-col absolute top-16 right-10 items-center w-fit rounded-xl overflow-clip drop-shadow-2xl'>
                             <div className='flex flex-row items-center py-3 px-6 bg-white hover:bg-color-lightgray hover:cursor-pointer gap-2 w-full'>
                                 <img src={car} className='h-5'/>
                                 <LinkRouter to='/bookings' className='flex  text-base font-medium text-color-blue '>My bookings</LinkRouter>
                             </div>
                             <div className='flex flex-row items-center py-3 px-6 bg-white hover:bg-color-lightgray gap-2 w-full hover:cursor-pointer'>
                                 <img src={exit} className='h-5'/>
-                                <LinkRouter to='/login' className='flex  text-base font-medium text-red-700'>Log out</LinkRouter>
+                                <LinkRouter onClick={()=>{Cookies.remove('token')}} to='/login' className='flex  text-base font-medium text-red-700'>Log out</LinkRouter>
                             </div>
                         </div>
                     ) : null

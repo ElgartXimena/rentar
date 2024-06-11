@@ -1,32 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {logo } from '../../assets';
-import { Link } from 'react-router-dom';
-
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import useFetch from '../../Hooks/useFetch';
+import Cookies from 'js-cookie'
+import { OrbitProgress, ThreeDot } from 'react-loading-indicators';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const {data, loading, error, fetchdata } = useFetch()
+  const navigate = useNavigate()
+
   const handleLogin = (e) => {
     e.preventDefault();
+    async function fetch(){
+      const body = { email: email, password: password}
+      await fetchdata(body, 'loginUser', null)
 
-    const loginData = { email, password };
-    
-    fetch('https://api.example.com/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(loginData),
-    })
-    .then(response => response.json())
-    .then(data => {
-      // Manejar la respuesta de la API
-      console.log('Success:', data);
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+    }
+    fetch()
   };
+
+  useEffect(()=>{
+    if (data){
+        console.log(data.userId)
+        Cookies.set('token' , data.userId)
+        navigate('/')
+    }
+  }, [data])
+
 
   return (
     <div className='h-svh items-center flex justify-center py-10'>
@@ -67,12 +69,16 @@ const Login = () => {
             </form>
           </div>
           <div className='flex flex-col w-full'>
-            <Link
-            to='/'
+            <button
+            onClick={handleLogin}
             className='px-4 py-3 bg-color-blue/90 font-poppins flex justify-center text-white rounded-xl hover:bg-color-blue transition-all hover:drop-shadow-xl'
             >
-                Continue
-            </Link>
+                { loading ? (
+                  <div className='flex'>
+                    <ThreeDot variant="pulsate" color="#FAFAFA" size="small" text="" textColor="" />
+                  </div>) : 'Continue'}
+                    
+            </button>
             <div className='text-left text-sm font-poppins mt-2 opacity-40'>
                 <span>It isn't necessary to have an account registered in advance.</span>
             </div>

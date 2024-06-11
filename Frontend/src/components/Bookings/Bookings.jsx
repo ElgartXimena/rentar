@@ -1,172 +1,195 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../LandingPage/Header'
 import BookingRow from './BookingRow'
-
+import useFetch from '../../Hooks/useFetch'
+import Cookies from 'js-cookie'
 const Bookings = () => {
-  const bookings = [
-    {
-         _id : "665e11834beee7caf1bc0706",
-         user : "665e11394beee7caf1bc06ff", //para que?
-         car : {
-            _id : "665a08573838926b512202d8",
-            make: "Toyota",
-            model: "Corolla",
-            url: "https://i.postimg.cc/8zGx7cww/corolla.png",
-            year: 2019,
-            seats: 5,
-            luggage: 3,
-            category: "Sedan",
-            price: 39,
-            rating: 4.2,
-            city: "Mar del Plata"
-        }, //necesito el object
-        city: {
-          _id: "665a170f724f762d62f532cd",
-          name: "Tandil",
-          address: "Buenos Aires",
-          __v: 0
-        }, //necesito el name
-        dateIn : "2024-06-08", //solo la fecha
-        dateOut: "2024-06-10",
-        totalPrice: 78,
-        __v: 0
-    },
-    {
-         _id : "665e11834beee7caf1bc0706",
-         user : "665e11394beee7caf1bc06ff", //para que?
-         car : {
-            _id : "665a08573838926b512202d8",
-            make: "Toyota",
-            model: "Corolla",
-            url: "https://i.postimg.cc/8zGx7cww/corolla.png",
-            year: 2019,
-            seats: 5,
-            luggage: 3,
-            category: "Sedan",
-            price: 39,
-            rating: 4.2,
-            city: "Mar del Plata"
-        }, //necesito el object
-        city: {
-          _id: "665a170f724f762d62f532cd",
-          name: "Tandil",
-          address: "Buenos Aires",
-          __v: 0
-        }, //necesito el name
-        dateIn : "2024-06-08", //solo la fecha
-        dateOut: "2024-06-10",
-        totalPrice: 78,
-        __v: 0
-    },
-    {
-         _id : "665e11834beee7caf1bc0706",
-         user : "665e11394beee7caf1bc06ff", //para que?
-         car : {
-            _id : "665a08573838926b512202d8",
-            make: "Toyota",
-            model: "Corolla",
-            url: "https://i.postimg.cc/8zGx7cww/corolla.png",
-            year: 2019,
-            seats: 5,
-            luggage: 3,
-            category: "Sedan",
-            price: 39,
-            rating: 4.2,
-            city: "Mar del Plata"
-        }, //necesito el object
-        city: {
-          _id: "665a170f724f762d62f532cd",
-          name: "Tandil",
-          address: "Buenos Aires",
-          __v: 0
-        }, //necesito el name
-        dateIn : "2024-06-01", //solo la fecha
-        dateOut: "2024-06-02",
-        totalPrice: 178,
-        __v: 0
-    },
-    {
-         _id : "665e11834beee7caf1bc0706",
-         user : "665e11394beee7caf1bc06ff", //para que?
-         car : {
-            _id : "665a08573838926b512202d8",
-            make: "Toyota",
-            model: "Corolla",
-            url: "https://i.postimg.cc/8zGx7cww/corolla.png",
-            year: 2019,
-            seats: 5,
-            luggage: 3,
-            category: "Sedan",
-            price: 39,
-            rating: 4.2,
-            city: "Mar del Plata"
-        }, //necesito el object
-        city: {
-          _id: "665a170f724f762d62f532cd",
-          name: "Tandil",
-          address: "Buenos Aires",
-          __v: 0
-        }, //necesito el name
-        dateIn : "2024-06-01", //solo la fecha
-        dateOut: "2024-06-02",
-        totalPrice: 178,
-        __v: 0
-    },
-    {
-         _id : "665e11834beee7caf1bc0706",
-         user : "665e11394beee7caf1bc06ff", //para que?
-         car : {
-            _id : "665a08573838926b512202d8",
-            make: "Toyota",
-            model: "Corolla",
-            url: "https://i.postimg.cc/8zGx7cww/corolla.png",
-            year: 2019,
-            seats: 5,
-            luggage: 3,
-            category: "Sedan",
-            price: 39,
-            rating: 4.2,
-            city: "Mar del Plata"
-        }, //necesito el object
-        city: {
-          _id: "665a170f724f762d62f532cd",
-          name: "Tandil",
-          address: "Buenos Aires",
-          __v: 0
-        }, //necesito el name
-        dateIn : "2024-06-01", //solo la fecha
-        dateOut: "2024-06-04",
-        totalPrice: 728,
-        __v: 0
-    },
-    {
-         _id : "665e11834beee7caf1bc0706",
-         user : "665e11394beee7caf1bc06ff", //para que?
-         car : {
-            _id : "665a08573838926b512202d8",
-            make: "Toyota",
-            model: "Corolla",
-            url: "https://i.postimg.cc/8zGx7cww/corolla.png",
-            year: 2019,
-            seats: 5,
-            luggage: 3,
-            category: "Sedan",
-            price: 39,
-            rating: 4.2,
-            city: "Mar del Plata"
-        }, //necesito el object
-        city: {
-          _id: "665a170f724f762d62f532cd",
-          name: "Tandil",
-          address: "Buenos Aires",
-          __v: 0
-        }, //necesito el name
-        dateIn : "2024-06-01", //solo la fecha
-        dateOut: "2024-06-04",
-        totalPrice: 728,
-        __v: 0
-    },
-  ]
+  // const bookings = [
+  //   {
+  //        _id : "665e11834beee7caf1bc0706",
+  //        user : "665e11394beee7caf1bc06ff", //para que?
+  //        car : {
+  //           _id : "665a08573838926b512202d8",
+  //           make: "Toyota",
+  //           model: "Corolla",
+  //           url: "https://i.postimg.cc/8zGx7cww/corolla.png",
+  //           year: 2019,
+  //           seats: 5,
+  //           luggage: 3,
+  //           category: "Sedan",
+  //           price: 39,
+  //           rating: 4.2,
+  //           city: "Mar del Plata"
+  //       }, //necesito el object
+  //       city: {
+  //         _id: "665a170f724f762d62f532cd",
+  //         name: "Tandil",
+  //         address: "Buenos Aires",
+  //         __v: 0
+  //       }, //necesito el name
+  //       dateIn : "2024-06-08", //solo la fecha
+  //       dateOut: "2024-06-10",
+  //       totalPrice: 78,
+  //       __v: 0
+  //   },
+  //   {
+  //        _id : "665e11834beee7caf1bc0706",
+  //        user : "665e11394beee7caf1bc06ff", //para que?
+  //        car : {
+  //           _id : "665a08573838926b512202d8",
+  //           make: "Toyota",
+  //           model: "Corolla",
+  //           url: "https://i.postimg.cc/8zGx7cww/corolla.png",
+  //           year: 2019,
+  //           seats: 5,
+  //           luggage: 3,
+  //           category: "Sedan",
+  //           price: 39,
+  //           rating: 4.2,
+  //           city: "Mar del Plata"
+  //       }, //necesito el object
+  //       city: {
+  //         _id: "665a170f724f762d62f532cd",
+  //         name: "Tandil",
+  //         address: "Buenos Aires",
+  //         __v: 0
+  //       }, //necesito el name
+  //       dateIn : "2024-06-08", //solo la fecha
+  //       dateOut: "2024-06-10",
+  //       totalPrice: 78,
+  //       __v: 0
+  //   },
+  //   {
+  //        _id : "665e11834beee7caf1bc0706",
+  //        user : "665e11394beee7caf1bc06ff", //para que?
+  //        car : {
+  //           _id : "665a08573838926b512202d8",
+  //           make: "Toyota",
+  //           model: "Corolla",
+  //           url: "https://i.postimg.cc/8zGx7cww/corolla.png",
+  //           year: 2019,
+  //           seats: 5,
+  //           luggage: 3,
+  //           category: "Sedan",
+  //           price: 39,
+  //           rating: 4.2,
+  //           city: "Mar del Plata"
+  //       }, //necesito el object
+  //       city: {
+  //         _id: "665a170f724f762d62f532cd",
+  //         name: "Tandil",
+  //         address: "Buenos Aires",
+  //         __v: 0
+  //       }, //necesito el name
+  //       dateIn : "2024-06-01", //solo la fecha
+  //       dateOut: "2024-06-02",
+  //       totalPrice: 178,
+  //       __v: 0
+  //   },
+  //   {
+  //        _id : "665e11834beee7caf1bc0706",
+  //        user : "665e11394beee7caf1bc06ff", //para que?
+  //        car : {
+  //           _id : "665a08573838926b512202d8",
+  //           make: "Toyota",
+  //           model: "Corolla",
+  //           url: "https://i.postimg.cc/8zGx7cww/corolla.png",
+  //           year: 2019,
+  //           seats: 5,
+  //           luggage: 3,
+  //           category: "Sedan",
+  //           price: 39,
+  //           rating: 4.2,
+  //           city: "Mar del Plata"
+  //       }, //necesito el object
+  //       city: {
+  //         _id: "665a170f724f762d62f532cd",
+  //         name: "Tandil",
+  //         address: "Buenos Aires",
+  //         __v: 0
+  //       }, //necesito el name
+  //       dateIn : "2024-06-01", //solo la fecha
+  //       dateOut: "2024-06-02",
+  //       totalPrice: 178,
+  //       __v: 0
+  //   },
+  //   {
+  //        _id : "665e11834beee7caf1bc0706",
+  //        user : "665e11394beee7caf1bc06ff", //para que?
+  //        car : {
+  //           _id : "665a08573838926b512202d8",
+  //           make: "Toyota",
+  //           model: "Corolla",
+  //           url: "https://i.postimg.cc/8zGx7cww/corolla.png",
+  //           year: 2019,
+  //           seats: 5,
+  //           luggage: 3,
+  //           category: "Sedan",
+  //           price: 39,
+  //           rating: 4.2,
+  //           city: "Mar del Plata"
+  //       }, //necesito el object
+  //       city: {
+  //         _id: "665a170f724f762d62f532cd",
+  //         name: "Tandil",
+  //         address: "Buenos Aires",
+  //         __v: 0
+  //       }, //necesito el name
+  //       dateIn : "2024-06-01", //solo la fecha
+  //       dateOut: "2024-06-04",
+  //       totalPrice: 728,
+  //       __v: 0
+  //   },
+  //   {
+  //        _id : "665e11834beee7caf1bc0706",
+  //        user : "665e11394beee7caf1bc06ff", //para que?
+  //        car : {
+  //           _id : "665a08573838926b512202d8",
+  //           make: "Toyota",
+  //           model: "Corolla",
+  //           url: "https://i.postimg.cc/8zGx7cww/corolla.png",
+  //           year: 2019,
+  //           seats: 5,
+  //           luggage: 3,
+  //           category: "Sedan",
+  //           price: 39,
+  //           rating: 4.2,
+  //           city: "Mar del Plata"
+  //       }, //necesito el object
+  //       city: {
+  //         _id: "665a170f724f762d62f532cd",
+  //         name: "Tandil",
+  //         address: "Buenos Aires",
+  //         __v: 0
+  //       }, //necesito el name
+  //       dateIn : "2024-06-01", //solo la fecha
+  //       dateOut: "2024-06-04",
+  //       totalPrice: 728,
+  //       __v: 0
+  //   },
+  // ]
+  const [bookings, setBookings] = useState([])
+  const {data, loading, error, fetchdata } = useFetch();
+
+  useEffect(()=>{
+    async function fetch(){
+      const params = Cookies.get('token')
+      await fetchdata(null, 'getBookings', params)
+    }
+    fetch()
+  }, [])
+
+  useEffect(()=>{
+    if (data){
+      setBookings(data)
+    }
+  }, [data])
+
+  useEffect(()=>{
+
+  }, [bookings])
+
+  //getUser from cookies
   return (
     <section className='pb-4'>
         <Header linkScroll={false}/>

@@ -8,7 +8,7 @@ const endpoints = {
   },
   CITIES: '/cities',
   BOOKINGS: {
-    MAIN: '/bookings',
+    MAIN: '/bookings/',
     WPARAMS: '/bookings/?id='
   },
   REVIEWS: {

@@ -32,14 +32,21 @@ const deleteBooking = async (req, res) => {
 const findBookings = async (req, res) => {
   try {
     const { user } = req.params;
-    const bookings = await BookingModel.find()
+    const bookings = await BookingModel.find({user: user})
       .populate('user')
       .populate('car')
       .populate('city');
+
     if (bookings.length === 0) {
       return res.status(404).json({ message: `No bookings found to the user ${user}` });
     }
-    res.status(200).json(bookings);
+     // Formatear las fechas antes de enviarlas en la respuesta
+     const formattedBookings = bookings.map(booking => ({
+      ...booking._doc,
+      dateIn: booking.dateIn.toISOString().split('T')[0],
+      dateOut: booking.dateOut.toISOString().split('T')[0]
+    }));
+    res.status(200).json(formattedBookings);
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err.message });
   }
