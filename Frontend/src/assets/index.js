@@ -22,7 +22,7 @@ import user from './Icons/user.svg'
 import car from './Icons/car.svg'
 import exit from './Icons/exit.svg'
 import icono from './Icons/hatchback.png'
-
+import enter from './Icons/enter.svg'
 import chevrolet from './Images/chevrolet.svg'
 import fiat from './Images/fiat.svg'
 import ford from './Images/ford.svg'
@@ -76,5 +76,6 @@ export {
     user,
     car,
     exit,
-    icono
+    icono,
+    enter
 };

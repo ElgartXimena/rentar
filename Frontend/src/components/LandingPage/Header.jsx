@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { logo, navigation } from '../../constants'
 import { Link } from 'react-scroll'
 import { Link as LinkRouter} from 'react-router-dom'
-import { car, downarrow, exit, user } from '../../assets'
+import { car, downarrow, enter, exit, user } from '../../assets'
 import Cookies from 'js-cookie'
 const Header = ({linkScroll}) => {
     
     const [menuOpen, setMenuOpen] = useState(false)
+    const logged = Cookies.get('token') != null
     return (
         <div className='flex justify-between items-center mx-auto px-10 py-3 z-50 top-0 left-0 w-full
         text-color-black font-poppins font-normal text-lg backdrop-blur-lg backdrop-brightness-140 fixed
@@ -51,8 +52,8 @@ const Header = ({linkScroll}) => {
                                 <LinkRouter to='/bookings' className='flex  text-base font-medium text-color-blue '>My bookings</LinkRouter>
                             </div>
                             <div className='flex flex-row items-center py-3 px-6 bg-white hover:bg-color-lightgray gap-2 w-full hover:cursor-pointer'>
-                                <img src={exit} className='h-5'/>
-                                <LinkRouter onClick={()=>{Cookies.remove('token')}} to='/login' className='flex  text-base font-medium text-red-700'>Log out</LinkRouter>
+                                <img src={logged ? exit : enter} className='h-5' />
+                                <LinkRouter onClick={()=>{Cookies.remove('token')}} to='/login' className={`flex  text-base font-bold ${logged ? 'text-red-700' : 'text-color-blue'}`}>{logged ? 'Log Out' : 'Log In'}</LinkRouter>
                             </div>
                         </div>
                     ) : null
