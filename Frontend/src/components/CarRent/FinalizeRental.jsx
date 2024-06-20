@@ -5,7 +5,7 @@ import SelectorsPanel from '../selector/SelectorsPanel'
 import CarCard from '../Cards/CarCard'
 import BigCarCard from '../Cards/BigCarCard'
 import Header from '../LandingPage/Header'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import dayjs from 'dayjs'
 import useFetch from '../../Hooks/useFetch'
 import Cookies from 'js-cookie'
@@ -13,6 +13,7 @@ import { ThreeDot } from 'react-loading-indicators'
 
 const FinalizeRental = () => {
   const locationParam = useLocation();
+  const navigate = useNavigate()
   const { car, rentData } = locationParam.state || {}
 
   const datein = dayjs(rentData.dateIn)
@@ -32,13 +33,16 @@ const FinalizeRental = () => {
         dateOut: rentData.dateOut,
         totalPrice: finalPrice,
       }
-      console.log(done)
-      if (!done){
+      
+      if ((!done) && (userid != null)){
         console.log(body)
         fetchdata(body, 'createBooking', null)
         .then(()=>{
             setDone(true)
         })
+      }
+      if (userid == null){
+        navigate('/login')
       }
   }
 

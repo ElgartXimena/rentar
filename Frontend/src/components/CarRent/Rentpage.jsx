@@ -19,10 +19,10 @@ const Rentpage = () => {
   const location = useLocation()
   const state = location.state
   
-  const type = state.category
-  const city = state.city
-  const dateIn = state.dateIn
-  const dateOut =state.dateOut
+  const type = state?.category
+  const city = state?.city
+  const dateIn = state?.dateIn
+  const dateOut =state?.dateOut
 
   
 

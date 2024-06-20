@@ -28,7 +28,7 @@ const Reviews = () => {
                 Thousands of clients trust in us, join them!
             </span>
         </div>
-        <div className='flex flex-row w-full pb-10 px-10 pt-2 gap-4 overflow-x-auto scrollbar scrollbar-thumb-color-middlegray'>
+        <div className='flex flex-row justify-center w-full pb-10 px-10 pt-2 gap-4 overflow-x-auto scrollbar scrollbar-thumb-color-middlegray'>
         {
           reviews ? (
             reviews.map((item)=>(
@@ -37,7 +37,6 @@ const Reviews = () => {
           ) : null
         }
         </div>
-        <Link to='/rent' className='blue-btn mt-10 justify-start'>Start renting now</Link>
     </div>
   )
 }
